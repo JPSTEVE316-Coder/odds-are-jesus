@@ -1140,6 +1140,17 @@
             border-color: var(--gray-600);
         }
 
+        .footer-btn.primary {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .footer-btn.primary:hover {
+            background: var(--gray-200);
+            border-color: var(--gray-200);
+        }
+
         .footer-btn-icon {
             font-size: 16px;
         }
@@ -1195,6 +1206,362 @@
         /* Canvas */
         #shareCanvas {
             display: none;
+        }
+
+        /* Share Preview Modal */
+        .share-preview-modal {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .share-preview-header {
+            margin-bottom: 24px;
+        }
+
+        .share-preview-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .share-preview-header p {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .share-preview-container {
+            background: var(--gray-800);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .share-preview-container canvas {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: var(--radius-md);
+        }
+
+        .share-preview-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .share-action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 24px;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .share-action-btn.primary {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .share-action-btn.primary:hover {
+            background: var(--gray-200);
+        }
+
+        .share-action-btn.secondary {
+            background: var(--gray-800);
+            color: var(--gray-300);
+            border: 1px solid var(--gray-700);
+        }
+
+        .share-action-btn.secondary:hover {
+            background: var(--gray-700);
+            color: var(--white);
+        }
+
+        /* Merch Store Modal */
+        .merch-modal {
+            max-width: 680px;
+            padding: 32px;
+        }
+
+        .merch-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .merch-header h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .merch-header p {
+            font-size: 15px;
+            color: var(--gray-500);
+        }
+
+        .merch-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .merch-item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: var(--gray-800);
+            border-radius: var(--radius-lg);
+            align-items: center;
+        }
+
+        .merch-image {
+            aspect-ratio: 1;
+            background: var(--black);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .merch-image.tshirt {
+            background: var(--black);
+        }
+
+        .merch-image.tshirt::before {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 80%;
+            background: var(--black);
+            border-radius: 8px 8px 0 0;
+            top: 15%;
+        }
+
+        .merch-image.mug {
+            background: var(--black);
+        }
+
+        .merch-image.mug::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 60%;
+            background: var(--black);
+            border: 3px solid var(--gray-700);
+            border-radius: 4px 4px 8px 8px;
+        }
+
+        .merch-image.mug::after {
+            content: '';
+            position: absolute;
+            width: 12%;
+            height: 30%;
+            border: 3px solid var(--gray-700);
+            border-left: none;
+            border-radius: 0 8px 8px 0;
+            right: 18%;
+        }
+
+        .merch-image.hat {
+            background: var(--black);
+        }
+
+        .merch-image.hat::before {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 35%;
+            background: var(--black);
+            border: 3px solid var(--gray-700);
+            border-radius: 50% 50% 0 0;
+            top: 25%;
+        }
+
+        .merch-image.hat::after {
+            content: '';
+            position: absolute;
+            width: 85%;
+            height: 12%;
+            background: var(--gray-700);
+            border-radius: 0 0 4px 4px;
+            top: 58%;
+        }
+
+        .merch-logo {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .merch-logo .line1 {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .merch-logo .line2 {
+            display: block;
+            font-size: 14px;
+            font-weight: 900;
+            color: var(--white);
+        }
+
+        .merch-logo.small .line1,
+        .merch-logo.small .line2 {
+            font-size: 10px;
+        }
+
+        .merch-details h4 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .merch-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .merch-options {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-group label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-500);
+        }
+
+        .color-options {
+            display: flex;
+            gap: 8px;
+        }
+
+        .color-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--gray-600);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .color-btn.black {
+            background: var(--black);
+        }
+
+        .color-btn.white {
+            background: var(--white);
+        }
+
+        .color-btn.selected {
+            border-color: var(--white);
+            box-shadow: 0 0 0 2px var(--gray-900), 0 0 0 4px var(--white);
+        }
+
+        .size-options {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .size-btn {
+            padding: 8px 14px;
+            background: var(--gray-700);
+            border: 1px solid var(--gray-600);
+            border-radius: 6px;
+            color: var(--gray-300);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-btn:hover {
+            background: var(--gray-600);
+        }
+
+        .size-btn.selected {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .merch-buy-btn {
+            width: 100%;
+            padding: 12px 20px;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .merch-buy-btn:hover {
+            background: var(--gray-200);
+        }
+
+        .merch-footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-700);
+        }
+
+        .merch-footer p {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 520px) {
+            .merch-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .merch-image {
+                max-width: 140px;
+                margin: 0 auto;
+            }
+
+            .merch-options {
+                justify-content: center;
+            }
+
+            .option-group {
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -1300,11 +1667,11 @@
             <p class="footer-source">Based on "Science Speaks" by Peter W. Stoner (1958)</p>
             
             <div class="footer-actions">
-                <button class="footer-btn" onclick="shareResults()">
-                    <span class="footer-btn-icon">↗</span> Share Results
+                <button class="footer-btn" onclick="openMerchStore()">
+                    <span class="footer-btn-icon">👕</span> Join the Team
                 </button>
-                <button class="footer-btn" onclick="generateShareCard()">
-                    <span class="footer-btn-icon">⬇</span> Download Image
+                <button class="footer-btn primary" onclick="previewShareCard()">
+                    <span class="footer-btn-icon">↗</span> Share Results
                 </button>
             </div>
         </footer>
@@ -1317,7 +1684,7 @@
             <div class="result-value" id="total-odds">1 in 1</div>
         </div>
         <div class="selection-count"><span id="selected-count">0</span>/8</div>
-        <button class="share-btn" id="share-btn" onclick="generateShareCard()">Share</button>
+        <button class="share-btn" id="share-btn" onclick="previewShareCard()">Share</button>
     </div>
 
     <!-- Modal Overlay -->
@@ -1468,6 +1835,133 @@
         <h3 id="toast-title">Milestone Reached</h3>
         <p id="toast-message">Description</p>
         <button class="toast-btn" onclick="closeToast()">Continue</button>
+    </div>
+
+    <!-- Share Card Preview Modal -->
+    <div class="info-modal share-preview-modal" id="share-preview-modal">
+        <button class="info-modal-close" onclick="closeInfoModal('share-preview-modal')">×</button>
+        
+        <div class="share-preview-header">
+            <h3>Your Results Card</h3>
+            <p>Preview your shareable image</p>
+        </div>
+
+        <div class="share-preview-container">
+            <canvas id="previewCanvas" width="540" height="540"></canvas>
+        </div>
+
+        <div class="share-preview-actions">
+            <button class="share-action-btn primary" onclick="downloadShareCard()">
+                <span>⬇</span> Download & Share with Friends
+            </button>
+            <button class="share-action-btn secondary" onclick="copyShareLink()">
+                <span>🔗</span> Copy Link Instead
+            </button>
+        </div>
+    </div>
+
+    <!-- Merch Store Modal -->
+    <div class="info-modal merch-modal" id="merch-modal">
+        <button class="info-modal-close" onclick="closeInfoModal('merch-modal')">×</button>
+        
+        <div class="merch-header">
+            <h3>Join the Team</h3>
+            <p>Wear the math. Start conversations.</p>
+        </div>
+
+        <div class="merch-grid">
+            <!-- T-Shirt -->
+            <div class="merch-item" id="merch-tshirt">
+                <div class="merch-image tshirt">
+                    <div class="merch-logo">
+                        <span class="line1">OddsAre</span>
+                        <span class="line2">Jesus</span>
+                    </div>
+                </div>
+                <div class="merch-details">
+                    <h4>Classic Tee</h4>
+                    <p class="merch-price">$28</p>
+                    
+                    <div class="merch-options">
+                        <div class="option-group">
+                            <label>Color</label>
+                            <div class="color-options">
+                                <button class="color-btn black selected" data-color="black" onclick="selectColor('tshirt', 'black', this)"></button>
+                                <button class="color-btn white" data-color="white" onclick="selectColor('tshirt', 'white', this)"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Size</label>
+                            <div class="size-options">
+                                <button class="size-btn" onclick="selectSize('tshirt', 'S', this)">S</button>
+                                <button class="size-btn" onclick="selectSize('tshirt', 'M', this)">M</button>
+                                <button class="size-btn selected" onclick="selectSize('tshirt', 'L', this)">L</button>
+                                <button class="size-btn" onclick="selectSize('tshirt', 'XL', this)">XL</button>
+                                <button class="size-btn" onclick="selectSize('tshirt', 'XXL', this)">XXL</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="merch-buy-btn" onclick="buyItem('tshirt')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Mug -->
+            <div class="merch-item" id="merch-mug">
+                <div class="merch-image mug">
+                    <div class="merch-logo small">
+                        <span class="line1">OddsAre</span>
+                        <span class="line2">Jesus</span>
+                    </div>
+                </div>
+                <div class="merch-details">
+                    <h4>Coffee Mug</h4>
+                    <p class="merch-price">$18</p>
+                    
+                    <div class="merch-options">
+                        <div class="option-group">
+                            <label>Style</label>
+                            <div class="size-options">
+                                <button class="size-btn selected" onclick="selectSize('mug', '11oz', this)">11oz</button>
+                                <button class="size-btn" onclick="selectSize('mug', '15oz', this)">15oz</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="merch-buy-btn" onclick="buyItem('mug')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Hat -->
+            <div class="merch-item" id="merch-hat">
+                <div class="merch-image hat">
+                    <div class="merch-logo small">
+                        <span class="line1">OddsAre</span>
+                        <span class="line2">Jesus</span>
+                    </div>
+                </div>
+                <div class="merch-details">
+                    <h4>Baseball Cap</h4>
+                    <p class="merch-price">$24</p>
+                    
+                    <div class="merch-options">
+                        <div class="option-group">
+                            <label>Fit</label>
+                            <div class="size-options">
+                                <button class="size-btn selected" onclick="selectSize('hat', 'Adjustable', this)">Adjustable</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="merch-buy-btn" onclick="buyItem('hat')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="merch-footer">
+            <p>Ships worldwide • Premium quality • Conversation starter guaranteed</p>
+        </div>
     </div>
 
     <!-- Canvas -->
@@ -1766,46 +2260,266 @@
         }
 
         // ============================================
-        // SHARE RESULTS (Native Share API)
+        // SHARE PREVIEW
         // ============================================
-        function shareResults() {
-            const oddsText = totalOdds.innerText;
-            const count = selected.size;
-            
-            const shareData = {
-                title: 'OddsAreJesus',
-                text: `I analyzed ${count} historical prophecies. The odds of one person fulfilling them by chance? ${oddsText}. Calculate yours:`,
-                url: 'https://oddsarejesus.com'
-            };
+        function previewShareCard() {
+            // Generate preview on smaller canvas
+            const canvas = document.getElementById('previewCanvas');
+            const ctx = canvas.getContext('2d');
 
-            if (navigator.share) {
-                // Native share (mobile & some desktop)
-                navigator.share(shareData)
-                    .catch(err => {
-                        // User cancelled or error - fall back to copy
-                        copyToClipboard(shareData);
-                    });
-            } else {
-                // Fallback: copy to clipboard
-                copyToClipboard(shareData);
+            // Black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, 540, 540);
+
+            // Subtle noise texture
+            ctx.fillStyle = 'rgba(255,255,255,0.02)';
+            for (let i = 0; i < 500; i++) {
+                ctx.fillRect(Math.random() * 540, Math.random() * 540, 1, 1);
             }
+
+            // Logo
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '300 36px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('OddsAre', 270, 140);
+            
+            ctx.font = '900 36px Inter, sans-serif';
+            ctx.fillText('Jesus', 270, 180);
+
+            // Divider line
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(195, 210);
+            ctx.lineTo(345, 210);
+            ctx.stroke();
+
+            // Stats
+            ctx.fillStyle = '#8A8A8F';
+            ctx.font = '500 14px Inter, sans-serif';
+            ctx.fillText(`${selected.size} prophecies analyzed`, 270, 260);
+
+            // Main result
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '700 44px JetBrains Mono, monospace';
+            const oddsText = totalOdds.innerText;
+            ctx.fillText(oddsText, 270, 320);
+
+            // Skepticism
+            ctx.fillStyle = '#8A8A8F';
+            ctx.font = '500 14px Inter, sans-serif';
+            ctx.fillText(`Skepticism factor: ${slider.value}%`, 270, 365);
+
+            // Scale comparison
+            const factor = slider.value / 100;
+            let total = 1;
+            selected.forEach(i => {
+                let adjusted = prophecies[i].odds * factor;
+                if (adjusted < 2) adjusted = 2;
+                total *= adjusted;
+            });
+            const exp = Math.floor(Math.log10(total));
+
+            if (exp >= 17) {
+                ctx.fillStyle = '#6E6E73';
+                ctx.font = '400 12px Inter, sans-serif';
+                ctx.fillText('Greater than silver dollars covering Texas 2ft deep', 270, 410);
+            }
+
+            // CTA
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '600 16px Inter, sans-serif';
+            ctx.fillText('OddsAreJesus.com', 270, 480);
+
+            // Footer
+            ctx.fillStyle = '#404040';
+            ctx.font = '400 10px Inter, sans-serif';
+            ctx.fillText('Mathematics verified by American Scientific Affiliation', 270, 510);
+
+            // Show modal
+            document.getElementById('share-preview-modal').classList.add('active');
+            modalOverlay.classList.add('active');
         }
 
-        function copyToClipboard(shareData) {
-            const text = `${shareData.text}\n${shareData.url}`;
+        function downloadShareCard() {
+            // Generate full-size card
+            const canvas = document.getElementById('shareCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, 1080, 1080);
+
+            // Subtle noise texture
+            ctx.fillStyle = 'rgba(255,255,255,0.02)';
+            for (let i = 0; i < 1000; i++) {
+                ctx.fillRect(Math.random() * 1080, Math.random() * 1080, 1, 1);
+            }
+
+            // Logo
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '300 72px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('OddsAre', 540, 280);
+            
+            ctx.font = '900 72px Inter, sans-serif';
+            ctx.fillText('Jesus', 540, 360);
+
+            // Divider line
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(390, 420);
+            ctx.lineTo(690, 420);
+            ctx.stroke();
+
+            // Stats
+            ctx.fillStyle = '#8A8A8F';
+            ctx.font = '500 24px Inter, sans-serif';
+            ctx.fillText(`${selected.size} prophecies analyzed`, 540, 500);
+
+            // Main result
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '700 80px JetBrains Mono, monospace';
+            ctx.fillText(totalOdds.innerText, 540, 620);
+
+            // Skepticism
+            ctx.fillStyle = '#8A8A8F';
+            ctx.font = '500 24px Inter, sans-serif';
+            ctx.fillText(`Skepticism factor: ${slider.value}%`, 540, 700);
+
+            // Scale comparison
+            const factor = slider.value / 100;
+            let total = 1;
+            selected.forEach(i => {
+                let adjusted = prophecies[i].odds * factor;
+                if (adjusted < 2) adjusted = 2;
+                total *= adjusted;
+            });
+            const exp = Math.floor(Math.log10(total));
+
+            if (exp >= 17) {
+                ctx.fillStyle = '#6E6E73';
+                ctx.font = '400 20px Inter, sans-serif';
+                ctx.fillText('Greater than silver dollars covering Texas 2ft deep', 540, 780);
+            }
+
+            // CTA
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '600 28px Inter, sans-serif';
+            ctx.fillText('Calculate yours at OddsAreJesus.com', 540, 920);
+
+            // Footer
+            ctx.fillStyle = '#404040';
+            ctx.font = '400 16px Inter, sans-serif';
+            ctx.fillText('Mathematics verified by American Scientific Affiliation', 540, 1000);
+
+            // Download
+            const link = document.createElement('a');
+            link.download = 'oddsarejesus-proof.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+            // Close modal
+            closeInfoModal('share-preview-modal');
+
+            // Show confirmation
+            document.getElementById('toast-title').innerText = 'Downloaded!';
+            document.getElementById('toast-message').innerText = 'Your share card is ready. Post it everywhere!';
+            toast.classList.add('active');
+            modalOverlay.classList.add('active');
+        }
+
+        function copyShareLink() {
+            const count = selected.size;
+            const oddsText = totalOdds.innerText;
+            const text = `I analyzed ${count} historical prophecies. The odds of one person fulfilling them by chance? ${oddsText}. Calculate yours: https://oddsarejesus.com`;
+            
             navigator.clipboard.writeText(text).then(() => {
-                // Show toast confirmation
-                document.getElementById('toast-title').innerText = 'Copied!';
-                document.getElementById('toast-message').innerText = 'Share link copied to clipboard. Paste it anywhere!';
+                closeInfoModal('share-preview-modal');
+                document.getElementById('toast-title').innerText = 'Link Copied!';
+                document.getElementById('toast-message').innerText = 'Share text copied to clipboard. Paste it anywhere!';
                 toast.classList.add('active');
                 modalOverlay.classList.add('active');
-            }).catch(err => {
-                alert('Copy this link: ' + shareData.url);
             });
         }
 
         // ============================================
-        // SHARE CARD
+        // MERCH STORE
+        // ============================================
+        const merchSelections = {
+            tshirt: { color: 'black', size: 'L' },
+            mug: { size: '11oz' },
+            hat: { size: 'Adjustable' }
+        };
+
+        function openMerchStore() {
+            document.getElementById('merch-modal').classList.add('active');
+            modalOverlay.classList.add('active');
+        }
+
+        function selectColor(item, color, btn) {
+            merchSelections[item].color = color;
+            
+            // Update UI
+            const container = btn.parentElement;
+            container.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            // Update preview
+            const imageEl = document.querySelector(`#merch-${item} .merch-image`);
+            const logoEl = document.querySelector(`#merch-${item} .merch-logo`);
+            
+            if (color === 'white') {
+                imageEl.style.background = '#FFFFFF';
+                logoEl.querySelectorAll('span').forEach(s => s.style.color = '#000000');
+            } else {
+                imageEl.style.background = '#000000';
+                logoEl.querySelectorAll('span').forEach(s => s.style.color = '#FFFFFF');
+            }
+        }
+
+        function selectSize(item, size, btn) {
+            merchSelections[item].size = size;
+            
+            // Update UI
+            const container = btn.parentElement;
+            container.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function buyItem(item) {
+            const selection = merchSelections[item];
+            let itemName, price;
+
+            switch(item) {
+                case 'tshirt':
+                    itemName = `OddsAreJesus T-Shirt (${selection.color}, ${selection.size})`;
+                    price = 28;
+                    break;
+                case 'mug':
+                    itemName = `OddsAreJesus Mug (${selection.size})`;
+                    price = 18;
+                    break;
+                case 'hat':
+                    itemName = `OddsAreJesus Cap (${selection.size})`;
+                    price = 24;
+                    break;
+            }
+
+            // For now, show confirmation - replace with actual checkout link
+            closeInfoModal('merch-modal');
+            document.getElementById('toast-title').innerText = 'Coming Soon!';
+            document.getElementById('toast-message').innerText = `${itemName} - $${price}\n\nStore launching soon. Join our list to be notified!`;
+            toast.classList.add('active');
+            modalOverlay.classList.add('active');
+
+            // TODO: Replace with actual Shopify/Stripe checkout link
+            // window.open(`https://your-store.com/cart/add?item=${item}&color=${selection.color}&size=${selection.size}`, '_blank');
+        }
+
+        // ============================================
+        // SHARE CARD (keeping for bottom bar button)
         // ============================================
         function generateShareCard() {
             const canvas = document.getElementById('shareCanvas');
