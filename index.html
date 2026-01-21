@@ -1151,6 +1151,17 @@
             border-color: var(--gray-200);
         }
 
+        .footer-btn.has-image {
+            padding-left: 14px;
+        }
+
+        .btn-thumb {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
         .footer-btn-icon {
             font-size: 16px;
         }
@@ -1741,12 +1752,12 @@
             <div class="footer-logo">
                 <span class="line1">OddsAre</span><span class="line2">Jesus</span>
             </div>
-            <p class="footer-tagline">Don't take our word for it. Take the math's.</p>
+            <p class="footer-tagline">It's Just Math.</p>
             <p class="footer-source">Based on "Science Speaks" by Peter W. Stoner (1958)</p>
             
             <div class="footer-actions">
-                <button class="footer-btn" onclick="openMerchStore()">
-                    <span class="footer-btn-icon">👕</span> Join the Team
+                <button class="footer-btn has-image" onclick="openMerchStore()">
+                    <img src="merch-tshirt-black-flat.png" alt="" class="btn-thumb"> Join the Team
                 </button>
                 <button class="footer-btn primary" onclick="previewShareCard()">
                     <span class="footer-btn-icon">↗</span> Share Results
