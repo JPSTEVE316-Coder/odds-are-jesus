@@ -1,0 +1,2833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>OddsAreJesus | The Mathematics of Prophecy</title>
+    <meta name="title" content="OddsAreJesus | The Mathematics of Prophecy">
+    <meta name="description" content="A data-driven probability calculator analyzing historical prophecy fulfillment. Select data points. Adjust for skepticism. See the math. Peer-reviewed by the American Scientific Affiliation.">
+    <meta name="keywords" content="probability, prophecy, mathematics, statistics, historical analysis, peer reviewed, science">
+    <meta name="author" content="OddsAreJesus">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://oddsarejesus.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oddsarejesus.com/">
+    <meta property="og:title" content="OddsAreJesus | The Mathematics of Prophecy">
+    <meta property="og:description" content="What are the odds one person fulfilled 8 ancient prophecies by chance? 1 in 10¹⁷. Adjust the skepticism yourself—the math still holds.">
+    <meta property="og:image" content="https://oddsarejesus.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="OddsAreJesus">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://oddsarejesus.com/">
+    <meta name="twitter:title" content="OddsAreJesus | The Mathematics of Prophecy">
+    <meta name="twitter:description" content="What are the odds one person fulfilled 8 ancient prophecies by chance? 1 in 10¹⁷. Adjust the skepticism yourself—the math still holds.">
+    <meta name="twitter:image" content="https://oddsarejesus.com/og-image.png">
+    <meta name="twitter:creator" content="@oddsarejesus">
+    
+    <!-- Favicon - Black square with white text aesthetic -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-size='28' font-weight='900' fill='white'>OAJ</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-size='28' font-weight='900' fill='white'>OAJ</text></svg>">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="OddsAreJesus">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "OddsAreJesus",
+        "description": "A data-driven probability calculator analyzing historical prophecy fulfillment.",
+        "url": "https://oddsarejesus.com",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!-- Analytics - Uncomment preferred option -->
+    <!-- Plausible: <script defer data-domain="oddsarejesus.com" src="https://plausible.io/js/script.js"></script> -->
+    <!-- Vercel: <script defer src="/_vercel/insights/script.js"></script> -->
+
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-300: #D4D4D4;
+            --gray-400: #A3A3A3;
+            --gray-500: #8A8A8F;
+            --gray-600: #6E6E73;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            
+            --accent: #FFFFFF;
+            --bg: #000000;
+            --text: #FFFFFF;
+            --text-muted: #8A8A8F;
+            --border: #262626;
+            --card-bg: #0A0A0A;
+            --card-hover: #141414;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+        }
+
+        /* Subtle texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 24px 160px;
+        }
+
+        /* Logo / Header */
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            padding-top: 20px;
+        }
+
+        .logo {
+            margin-bottom: 48px;
+        }
+
+        .logo-text {
+            font-size: clamp(48px, 12vw, 80px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 0.9;
+        }
+
+        .logo-text .line1 {
+            display: block;
+            font-weight: 400;
+            font-size: 0.85em;
+        }
+
+        .logo-text .line2 {
+            display: block;
+            font-weight: 900;
+        }
+
+        .tagline {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--gray-400);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 4px;
+        }
+
+        .stat.clickable {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .stat.clickable:hover {
+            transform: translateY(-2px);
+        }
+
+        .stat.clickable .stat-value {
+            text-decoration: underline;
+            text-decoration-color: var(--gray-600);
+            text-underline-offset: 4px;
+        }
+
+        .info-icon {
+            font-size: 16px;
+            color: var(--gray-400);
+            text-decoration: none;
+            display: inline;
+            vertical-align: super;
+            font-size: 14px;
+        }
+
+        /* Verification Badge */
+        .verification {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 64px;
+        }
+
+        .verification-badge {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .verification-badge:hover {
+            background: var(--card-hover);
+            border-color: var(--gray-600);
+        }
+
+        .verification-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            color: var(--black);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .verification-text {
+            text-align: left;
+        }
+
+        .verification-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .verification-title .info {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .verification-subtitle {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+
+        .control-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .control-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+        }
+
+        .control-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .slider-container {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .slider-track {
+            height: 4px;
+            background: var(--gray-800);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .slider-fill {
+            height: 100%;
+            background: var(--white);
+            border-radius: 100px;
+            transition: width 0.1s;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border-radius: 50%;
+            cursor: grab;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            transition: transform 0.15s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        input[type="range"]::-webkit-slider-thumb:active {
+            cursor: grabbing;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .control-note {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--gray-500);
+            text-align: center;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray-500);
+        }
+
+        /* Data Grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 64px;
+        }
+
+        .data-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .data-card:hover {
+            background: var(--card-hover);
+            border-color: var(--gray-700);
+        }
+
+        .data-card.selected {
+            border-color: var(--white);
+            background: var(--gray-900);
+        }
+
+        .data-card.selected::before {
+            content: '✓';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            background: var(--white);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .card-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+
+        .card-source {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+
+        .card-odds {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .card-odds-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .card-odds-label {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .view-math-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--gray-800);
+            border: none;
+            color: var(--gray-300);
+            padding: 8px 14px;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .view-math-btn:hover {
+            background: var(--gray-700);
+            color: var(--white);
+        }
+
+        /* Scale Section */
+        .scale-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 48px 32px;
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .scale-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray-500);
+            margin-bottom: 32px;
+        }
+
+        .scale-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .scale-item {
+            padding: 24px 32px;
+            background: var(--gray-900);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            min-width: 160px;
+            transition: all 0.3s;
+        }
+
+        .scale-item.active {
+            border-color: var(--white);
+            background: var(--gray-800);
+        }
+
+        .scale-exp {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .scale-desc {
+            font-size: 12px;
+            color: var(--gray-500);
+            line-height: 1.4;
+        }
+
+        .scale-arrow {
+            font-size: 24px;
+            color: var(--gray-600);
+        }
+
+        .scale-explanation {
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: 16px;
+            color: var(--gray-400);
+            line-height: 1.7;
+        }
+
+        .scale-explanation strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Bottom Bar */
+        .bottom-bar {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            color: var(--black);
+            border-radius: 100px;
+            padding: 12px 16px 12px 28px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .result-display {
+            text-align: left;
+        }
+
+        .result-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-500);
+        }
+
+        .result-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .selection-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--gray-600);
+            padding: 8px 16px;
+            background: var(--gray-100);
+            border-radius: 100px;
+        }
+
+        .share-btn {
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            padding: 14px 24px;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+        }
+
+        .share-btn.visible {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .share-btn:hover {
+            background: var(--gray-800);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gray-900);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            padding: 32px 32px 48px;
+            z-index: 2001;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            transform: translateY(0);
+        }
+
+        .modal-handle {
+            width: 40px;
+            height: 4px;
+            background: var(--gray-700);
+            border-radius: 100px;
+            margin: -16px auto 28px;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .modal-source {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .math-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: center;
+            max-width: 480px;
+            margin: 0 auto 32px;
+        }
+
+        .math-box {
+            background: var(--gray-800);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .math-box-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .math-box-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .math-box-desc {
+            font-size: 11px;
+            color: var(--gray-500);
+            margin-top: 8px;
+        }
+
+        .math-operator {
+            font-size: 28px;
+            color: var(--gray-600);
+        }
+
+        .logic-box {
+            max-width: 480px;
+            margin: 0 auto 24px;
+            padding: 20px;
+            background: var(--gray-800);
+            border-radius: var(--radius-md);
+        }
+
+        .logic-box h4 {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+            margin-bottom: 12px;
+        }
+
+        .logic-box p {
+            font-size: 14px;
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        .result-box {
+            max-width: 280px;
+            margin: 0 auto;
+            background: var(--white);
+            color: var(--black);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .result-box-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+        }
+
+        .result-box-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* Info Modal */
+        .info-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            background: var(--gray-900);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            z-index: 3000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            max-width: 520px;
+            width: calc(100% - 48px);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .info-modal.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        .info-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            background: var(--gray-800);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--gray-400);
+            transition: all 0.2s;
+        }
+
+        .info-modal-close:hover {
+            background: var(--gray-700);
+            color: var(--white);
+        }
+
+        .info-modal-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-modal-icon {
+            width: 52px;
+            height: 52px;
+            min-width: 52px;
+            background: var(--white);
+            color: var(--black);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .info-modal-title h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .info-modal-title p {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .info-section {
+            margin-bottom: 24px;
+        }
+
+        .info-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section h4 {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+            margin-bottom: 12px;
+        }
+
+        .info-quote {
+            background: var(--gray-800);
+            border-left: 2px solid var(--white);
+            padding: 16px 20px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 14px;
+            color: var(--gray-300);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .info-quote .attribution {
+            margin-top: 12px;
+            font-style: normal;
+            font-size: 12px;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        .info-text {
+            font-size: 14px;
+            color: var(--gray-300);
+            line-height: 1.7;
+        }
+
+        .info-text strong {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-800);
+            font-size: 13px;
+            color: var(--gray-300);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list .bullet {
+            width: 5px;
+            height: 5px;
+            min-width: 5px;
+            background: var(--white);
+            border-radius: 50%;
+            margin-top: 6px;
+        }
+
+        .info-credentials {
+            display: grid;
+            gap: 12px;
+        }
+
+        .credential-card {
+            background: var(--gray-800);
+            padding: 16px;
+            border-radius: var(--radius-md);
+        }
+
+        .credential-card .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .credential-card .role {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .info-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 10px 16px;
+            background: var(--gray-800);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .info-link:hover {
+            background: var(--gray-700);
+            color: var(--white);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            background: var(--gray-900);
+            border: 1px solid var(--white);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            text-align: center;
+            z-index: 3000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            max-width: 400px;
+            width: calc(100% - 48px);
+        }
+
+        .toast.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        .toast-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .toast h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .toast p {
+            font-size: 14px;
+            color: var(--gray-400);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .toast-btn {
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .toast-btn:hover {
+            background: var(--gray-200);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 64px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo .line1 {
+            font-weight: 400;
+        }
+
+        .footer-tagline {
+            font-size: 16px;
+            color: var(--gray-500);
+            margin-bottom: 24px;
+        }
+
+        .footer-source {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        .footer-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            color: var(--white);
+            padding: 14px 24px;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .footer-btn:hover {
+            background: var(--gray-700);
+            border-color: var(--gray-600);
+        }
+
+        .footer-btn.primary {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .footer-btn.primary:hover {
+            background: var(--gray-200);
+            border-color: var(--gray-200);
+        }
+
+        .footer-btn-icon {
+            font-size: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 16px 140px;
+            }
+
+            .stats-row {
+                gap: 32px;
+            }
+
+            .control-panel {
+                padding: 24px;
+            }
+
+            .bottom-bar {
+                max-width: calc(100% - 32px);
+                padding: 10px 12px 10px 20px;
+                gap: 12px;
+            }
+
+            .result-value {
+                font-size: 16px;
+            }
+
+            .share-btn {
+                padding: 12px 18px;
+                font-size: 13px;
+            }
+
+            .math-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .math-operator {
+                transform: rotate(90deg);
+            }
+
+            .scale-visual {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .scale-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Canvas */
+        #shareCanvas {
+            display: none;
+        }
+
+        /* Share Preview Modal */
+        .share-preview-modal {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .share-preview-header {
+            margin-bottom: 24px;
+        }
+
+        .share-preview-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .share-preview-header p {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .share-preview-container {
+            background: var(--gray-800);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .share-preview-container canvas {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: var(--radius-md);
+        }
+
+        .share-preview-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .share-action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 24px;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .share-action-btn.primary {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .share-action-btn.primary:hover {
+            background: var(--gray-200);
+        }
+
+        .share-action-btn.secondary {
+            background: var(--gray-800);
+            color: var(--gray-300);
+            border: 1px solid var(--gray-700);
+        }
+
+        .share-action-btn.secondary:hover {
+            background: var(--gray-700);
+            color: var(--white);
+        }
+
+        /* Merch Store Modal - Full Screen */
+        .merch-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--black);
+            z-index: 3000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+            overflow-y: auto;
+        }
+
+        .merch-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .merch-modal-content {
+            min-height: 100vh;
+            padding: 60px 24px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .merch-close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .merch-close-btn:hover {
+            background: var(--gray-700);
+            transform: scale(1.05);
+        }
+
+        .merch-hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .merch-hero h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .merch-hero p {
+            font-size: 18px;
+            color: var(--gray-400);
+        }
+
+        .merch-products {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .merch-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 32px;
+            background: var(--gray-900);
+            border: 1px solid var(--gray-800);
+            border-radius: var(--radius-xl);
+            align-items: center;
+        }
+
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-main-image {
+            aspect-ratio: 1;
+            background: var(--gray-800);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .product-main-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .product-thumbnails {
+            display: flex;
+            gap: 8px;
+        }
+
+        .thumb {
+            width: 64px;
+            height: 64px;
+            background: var(--gray-800);
+            border: 2px solid var(--gray-700);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0;
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb:hover {
+            border-color: var(--gray-500);
+        }
+
+        .thumb.active {
+            border-color: var(--white);
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .product-tag {
+            display: inline-block;
+            width: fit-content;
+            padding: 6px 12px;
+            background: var(--white);
+            color: var(--black);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 100px;
+        }
+
+        .product-info h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .product-desc {
+            font-size: 15px;
+            color: var(--gray-400);
+            margin: 0;
+        }
+
+        .product-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .product-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .option-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-row label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray-400);
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 12px;
+        }
+
+        .swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--gray-600);
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            padding: 0;
+        }
+
+        .swatch.black {
+            background: var(--black);
+            border-color: var(--gray-600);
+        }
+
+        .swatch.white {
+            background: var(--white);
+        }
+
+        .swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .swatch.selected {
+            border-color: var(--white);
+            box-shadow: 0 0 0 2px var(--black), 0 0 0 4px var(--white);
+        }
+
+        .swatch-check {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .swatch.black .swatch-check {
+            color: var(--white);
+        }
+
+        .swatch.white .swatch-check {
+            color: var(--black);
+        }
+
+        .swatch.selected .swatch-check {
+            opacity: 1;
+        }
+
+        .size-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            padding: 12px 20px;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 100px;
+            color: var(--gray-300);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pill:hover {
+            background: var(--gray-700);
+            border-color: var(--gray-600);
+        }
+
+        .pill.selected {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 18px 32px;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--gray-200);
+            transform: translateY(-2px);
+        }
+
+        .merch-footer-banner {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--gray-800);
+            flex-wrap: wrap;
+        }
+
+        .banner-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        .banner-icon {
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .merch-modal-content {
+                padding: 80px 16px 40px;
+            }
+
+            .merch-hero h2 {
+                font-size: 32px;
+            }
+
+            .merch-product {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 20px;
+            }
+
+            .product-info h3 {
+                font-size: 24px;
+            }
+
+            .product-price {
+                font-size: 28px;
+            }
+
+            .merch-footer-banner {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-text">
+                    <span class="line1">OddsAre</span>
+                    <span class="line2">Jesus</span>
+                </div>
+            </div>
+            <p class="tagline">A data-driven analysis of historical prophecy fulfillment. Select data points. Adjust for skepticism. See the math.</p>
+            
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Data Points</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10<sup>17</sup></div>
+                    <div class="stat-label">Base Probability</div>
+                </div>
+                <div class="stat clickable" onclick="showPeerReviewModal()">
+                    <div class="stat-value">1952 <span class="info-icon">ⓘ</span></div>
+                    <div class="stat-label">Peer Reviewed</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Verification -->
+        <section class="verification">
+            <div class="verification-badge" onclick="showASAModal()">
+                <div class="verification-icon">ASA</div>
+                <div class="verification-text">
+                    <div class="verification-title">Verified Mathematics <span class="info">ⓘ</span></div>
+                    <div class="verification-subtitle">American Scientific Affiliation Review</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <div class="control-header">
+                <div class="control-label">Skepticism Factor</div>
+                <div class="control-value"><span id="conf-readout">100</span>%</div>
+            </div>
+            
+            <div class="slider-container">
+                <div class="slider-track">
+                    <div class="slider-fill" id="slider-fill" style="width: 100%"></div>
+                </div>
+                <input type="range" id="slider" min="1" max="100" value="100">
+            </div>
+            
+            <div class="slider-labels">
+                <span>Maximum Doubt</span>
+                <span>Conservative Estimate</span>
+            </div>
+            
+            <p class="control-note">
+                Reduce every probability by your skepticism factor. Even at 1%, the conclusion holds.
+            </p>
+        </section>
+
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-title">Historical Data Points</div>
+            <p class="section-subtitle">Select prophecies to calculate cumulative probability</p>
+        </div>
+
+        <!-- Data Grid -->
+        <div class="data-grid" id="grid"></div>
+
+        <!-- Scale Section -->
+        <section class="scale-section">
+            <div class="scale-title">Understanding Scale</div>
+            
+            <div class="scale-visual">
+                <div class="scale-item" id="scale-texas">
+                    <div class="scale-exp">10<sup>17</sup></div>
+                    <div class="scale-desc">Silver dollars covering<br>Texas 2 feet deep</div>
+                </div>
+                <div class="scale-arrow">→</div>
+                <div class="scale-item" id="scale-universe">
+                    <div class="scale-exp">10<sup>80</sup></div>
+                    <div class="scale-desc">Atoms in the<br>observable universe</div>
+                </div>
+            </div>
+
+            <p class="scale-explanation">
+                At <strong>10<sup>17</sup></strong>, imagine covering Texas in silver dollars two feet deep, marking one, shuffling them, and picking the marked coin blindfolded on your first try.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo">
+                <span class="line1">OddsAre</span><span class="line2">Jesus</span>
+            </div>
+            <p class="footer-tagline">Don't take our word for it. Take the math's.</p>
+            <p class="footer-source">Based on "Science Speaks" by Peter W. Stoner (1958)</p>
+            
+            <div class="footer-actions">
+                <button class="footer-btn" onclick="openMerchStore()">
+                    <span class="footer-btn-icon">👕</span> Join the Team
+                </button>
+                <button class="footer-btn primary" onclick="previewShareCard()">
+                    <span class="footer-btn-icon">↗</span> Share Results
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar" id="bottom-bar">
+        <div class="result-display">
+            <div class="result-label">Cumulative Probability</div>
+            <div class="result-value" id="total-odds">1 in 1</div>
+        </div>
+        <div class="selection-count"><span id="selected-count">0</span>/8</div>
+        <button class="share-btn" id="share-btn" onclick="previewShareCard()">Share</button>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+    
+    <!-- Detail Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-handle" onclick="closeModal()"></div>
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Data Point</h3>
+            <p class="modal-source" id="modal-source">Source Reference</p>
+        </div>
+        
+        <div class="math-grid">
+            <div class="math-box">
+                <div class="math-box-label">Numerator</div>
+                <div class="math-box-value" id="m-num">1</div>
+                <div class="math-box-desc" id="m-num-label">Description</div>
+            </div>
+            <div class="math-operator">÷</div>
+            <div class="math-box">
+                <div class="math-box-label">Denominator</div>
+                <div class="math-box-value" id="m-den">1</div>
+                <div class="math-box-desc" id="m-den-label">Description</div>
+            </div>
+        </div>
+
+        <div class="logic-box">
+            <h4>Methodology</h4>
+            <p id="m-logic">Explanation</p>
+        </div>
+
+        <div class="result-box">
+            <div class="result-box-label">Probability</div>
+            <div class="result-box-value" id="m-result">1 in X</div>
+        </div>
+    </div>
+
+    <!-- ASA Modal -->
+    <div class="info-modal" id="asa-modal">
+        <button class="info-modal-close" onclick="closeInfoModal('asa-modal')">×</button>
+        
+        <div class="info-modal-header">
+            <div class="info-modal-icon">ASA</div>
+            <div class="info-modal-title">
+                <h3>American Scientific Affiliation</h3>
+                <p>Independent Scientific Review (1952)</p>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h4>Official Statement</h4>
+            <div class="info-quote">
+                "The mathematical analysis included herein is based upon principles of probability which are thoroughly sound, and Professor Stoner has applied these principles in a proper and convincing way."
+                <div class="attribution">— Executive Council, American Scientific Affiliation</div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h4>What is the ASA?</h4>
+            <p class="info-text">
+                The <strong>American Scientific Affiliation</strong> is a network of scientists founded in 1941. Members hold advanced degrees in natural or social sciences and are committed to both scientific integrity and intellectual honesty. The organization is <strong>not</strong> a religious advocacy group—it's a professional scientific body that evaluates claims using standard scientific methodology.
+            </p>
+        </div>
+
+        <div class="info-section">
+            <h4>What Was Reviewed</h4>
+            <ul class="info-list">
+                <li><span class="bullet"></span><span><strong>Statistical methodology</strong> — Confirmed proper application of compound probability theory</span></li>
+                <li><span class="bullet"></span><span><strong>Conservative estimates</strong> — Verified that probability values were deliberately understated, not inflated</span></li>
+                <li><span class="bullet"></span><span><strong>Independence of variables</strong> — Confirmed that each prophecy represents a statistically independent event</span></li>
+                <li><span class="bullet"></span><span><strong>Historical data sources</strong> — Validated demographic and population figures used in calculations</span></li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h4>Why This Matters</h4>
+            <p class="info-text">
+                Scientific peer review exists to catch errors in methodology. The ASA's endorsement means the <strong>math itself is sound</strong>—not that you must accept any particular conclusion. The probabilities are calculated correctly; what you do with that information is your decision.
+            </p>
+        </div>
+
+        <a href="https://www.asa3.org" target="_blank" rel="noopener" class="info-link">Visit ASA Website →</a>
+    </div>
+
+    <!-- Peer Review Modal -->
+    <div class="info-modal" id="peer-modal">
+        <button class="info-modal-close" onclick="closeInfoModal('peer-modal')">×</button>
+        
+        <div class="info-modal-header">
+            <div class="info-modal-icon">1952</div>
+            <div class="info-modal-title">
+                <h3>Peer Review Process</h3>
+                <p>"Science Speaks" by Peter W. Stoner</p>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h4>The Author</h4>
+            <div class="info-credentials">
+                <div class="credential-card">
+                    <div class="name">Peter W. Stoner, M.S.</div>
+                    <div class="role">Chairman, Departments of Mathematics and Astronomy, Pasadena City College</div>
+                </div>
+                <div class="credential-card">
+                    <div class="name">Professor Emeritus</div>
+                    <div class="role">Westmont College, Santa Barbara, California</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h4>Methodology: "Conservative Estimation"</h4>
+            <p class="info-text">
+                Stoner's approach was deliberately <strong>pessimistic</strong>. For every prophecy, he didn't look for the smallest possible odds—he intentionally used the <strong>most conservative estimates</strong> that would be hardest to dispute. This means the actual probabilities could be significantly more extreme than presented.
+            </p>
+        </div>
+
+        <div class="info-section">
+            <h4>The Review Process</h4>
+            <ul class="info-list">
+                <li><span class="bullet"></span><span><strong>1944</strong> — Initial calculations performed with 600+ university students estimating probabilities</span></li>
+                <li><span class="bullet"></span><span><strong>1952</strong> — Manuscript submitted to ASA Executive Council for scientific review</span></li>
+                <li><span class="bullet"></span><span><strong>1958</strong> — Published as "Science Speaks" with ASA endorsement in foreword</span></li>
+                <li><span class="bullet"></span><span><strong>1963</strong> — Revised edition with expanded analysis (48 prophecies)</span></li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h4>The Core Principle</h4>
+            <div class="info-quote">
+                "If the chance of one event happening is 1 in X, and the chance of a second independent event is 1 in Y, then the chance of both happening is 1 in (X × Y). This is the law of compound probability—a foundational principle in statistics."
+                <div class="attribution">— Standard probability theory (Multiplication Rule)</div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h4>What This Means For You</h4>
+            <p class="info-text">
+                You don't have to trust us—you can verify. The math uses <strong>standard probability theory</strong> taught in every statistics course. The estimates are public. The methodology is transparent. Use the skepticism slider to stress-test the numbers yourself.
+            </p>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">📊</div>
+        <h3 id="toast-title">Milestone Reached</h3>
+        <p id="toast-message">Description</p>
+        <button class="toast-btn" onclick="closeToast()">Continue</button>
+    </div>
+
+    <!-- Share Card Preview Modal -->
+    <div class="info-modal share-preview-modal" id="share-preview-modal">
+        <button class="info-modal-close" onclick="closeInfoModal('share-preview-modal')">×</button>
+        
+        <div class="share-preview-header">
+            <h3>Your Results Card</h3>
+            <p>Preview your shareable image</p>
+        </div>
+
+        <div class="share-preview-container">
+            <canvas id="previewCanvas" width="540" height="540"></canvas>
+        </div>
+
+        <div class="share-preview-actions">
+            <button class="share-action-btn primary" onclick="downloadShareCard()">
+                <span>⬇</span> Download & Share with Friends
+            </button>
+            <button class="share-action-btn secondary" onclick="copyShareLink()">
+                <span>🔗</span> Copy Link Instead
+            </button>
+        </div>
+    </div>
+
+    <!-- Merch Store Modal -->
+    <div class="merch-modal-overlay" id="merch-modal">
+        <div class="merch-modal-content">
+            <button class="merch-close-btn" onclick="closeInfoModal('merch-modal')">×</button>
+            
+            <div class="merch-hero">
+                <h2>Join the Team</h2>
+                <p>Wear the math. Start conversations.</p>
+            </div>
+
+            <div class="merch-products">
+                <!-- T-Shirt Product -->
+                <div class="merch-product" id="product-tshirt">
+                    <div class="product-gallery">
+                        <div class="product-main-image">
+                            <img src="merch-tshirt-black.png" alt="OddsAreJesus T-Shirt" id="tshirt-main-img">
+                        </div>
+                        <div class="product-thumbnails">
+                            <button class="thumb active" onclick="changeTshirtImage('black', this)">
+                                <img src="merch-tshirt-black-flat.png" alt="Black">
+                            </button>
+                            <button class="thumb" onclick="changeTshirtImage('white', this)">
+                                <img src="merch-tshirt-white-flat.png" alt="White">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-tag">Best Seller</div>
+                        <h3>Classic Tee</h3>
+                        <p class="product-desc">Premium cotton. Conversation starter.</p>
+                        <div class="product-price">$28</div>
+                        
+                        <div class="product-options">
+                            <div class="option-row">
+                                <label>Color</label>
+                                <div class="color-swatches">
+                                    <button class="swatch black selected" data-color="black" onclick="selectTshirtColor('black', this)">
+                                        <span class="swatch-check">✓</span>
+                                    </button>
+                                    <button class="swatch white" data-color="white" onclick="selectTshirtColor('white', this)">
+                                        <span class="swatch-check">✓</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="option-row">
+                                <label>Size</label>
+                                <div class="size-pills">
+                                    <button class="pill" onclick="selectSize('tshirt', 'S', this)">S</button>
+                                    <button class="pill" onclick="selectSize('tshirt', 'M', this)">M</button>
+                                    <button class="pill selected" onclick="selectSize('tshirt', 'L', this)">L</button>
+                                    <button class="pill" onclick="selectSize('tshirt', 'XL', this)">XL</button>
+                                    <button class="pill" onclick="selectSize('tshirt', 'XXL', this)">XXL</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="add-to-cart-btn" onclick="buyItem('tshirt')">
+                            Add to Cart — $28
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hat Product -->
+                <div class="merch-product" id="product-hat">
+                    <div class="product-gallery">
+                        <div class="product-main-image">
+                            <img src="merch-hat-front.png" alt="OddsAreJesus Cap" id="hat-main-img">
+                        </div>
+                        <div class="product-thumbnails">
+                            <button class="thumb active" onclick="changeHatImage('front', this)">
+                                <img src="merch-hat-front.png" alt="Front">
+                            </button>
+                            <button class="thumb" onclick="changeHatImage('back', this)">
+                                <img src="merch-hat-back.png" alt="Back">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-tag">Fan Favorite</div>
+                        <h3>Snapback Cap</h3>
+                        <p class="product-desc">Front: Logo. Back: "It's Just Math"</p>
+                        <div class="product-price">$24</div>
+                        
+                        <div class="product-options">
+                            <div class="option-row">
+                                <label>Fit</label>
+                                <div class="size-pills">
+                                    <button class="pill selected" onclick="selectSize('hat', 'Adjustable', this)">Adjustable</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="add-to-cart-btn" onclick="buyItem('hat')">
+                            Add to Cart — $24
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mug Product -->
+                <div class="merch-product" id="product-mug">
+                    <div class="product-gallery">
+                        <div class="product-main-image">
+                            <img src="merch-mug.png" alt="OddsAreJesus Mug" id="mug-main-img">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-tag">Morning Essential</div>
+                        <h3>Coffee Mug</h3>
+                        <p class="product-desc">"OddsAreJesus — It's Just Math"</p>
+                        <div class="product-price">$18</div>
+                        
+                        <div class="product-options">
+                            <div class="option-row">
+                                <label>Size</label>
+                                <div class="size-pills">
+                                    <button class="pill selected" onclick="selectSize('mug', '11oz', this)">11 oz</button>
+                                    <button class="pill" onclick="selectSize('mug', '15oz', this)">15 oz</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="add-to-cart-btn" onclick="buyItem('mug')">
+                            Add to Cart — $18
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="merch-footer-banner">
+                <div class="banner-item">
+                    <span class="banner-icon">🚚</span>
+                    <span>Free shipping over $50</span>
+                </div>
+                <div class="banner-item">
+                    <span class="banner-icon">⭐</span>
+                    <span>Premium quality</span>
+                </div>
+                <div class="banner-item">
+                    <span class="banner-icon">💬</span>
+                    <span>Conversation starter</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="shareCanvas" width="1080" height="1080"></canvas>
+
+    <script>
+        // ============================================
+        // DATA
+        // ============================================
+        const prophecies = [
+            {
+                id: 1,
+                name: "Birthplace: Bethlehem",
+                ref: "Micah 5:2 → Matthew 2:1",
+                odds: 280000,
+                num: "7,150",
+                numLabel: "Average population of Bethlehem",
+                den: "2,000,000,000",
+                denLabel: "Average world population",
+                logic: "The probability that any person in history would be born specifically in the small town of Bethlehem. Uses conservative population estimates averaging across centuries."
+            },
+            {
+                id: 2,
+                name: "Preceded by Messenger",
+                ref: "Isaiah 40:3 → Matthew 3:1-3",
+                odds: 1000,
+                num: "1",
+                numLabel: "Specific precursor event",
+                den: "1,000",
+                denLabel: "Historical claimants ratio",
+                logic: "The probability that a public figure would be specifically preceded by another figure explicitly preparing their way, as documented in multiple independent sources."
+            },
+            {
+                id: 3,
+                name: "Entry Method: Donkey",
+                ref: "Zechariah 9:9 → Matthew 21:7",
+                odds: 100,
+                num: "1",
+                numLabel: "Specific transport method",
+                den: "100",
+                denLabel: "Royal entry variations",
+                logic: "Historical kings entered cities on horses or in chariots. A donkey entry was a deliberate peace symbol—unusual for someone claiming authority."
+            },
+            {
+                id: 4,
+                name: "Betrayed by Associate",
+                ref: "Psalm 41:9 → Matthew 26:47-48",
+                odds: 1000,
+                num: "1",
+                numLabel: "Betrayal source type",
+                den: "1,000",
+                denLabel: "Death circumstance variations",
+                logic: "The betrayal coming from within the inner circle rather than external enemies. Accounts for the statistical rarity of this specific circumstance."
+            },
+            {
+                id: 5,
+                name: "Price: 30 Silver Pieces",
+                ref: "Zechariah 11:12 → Matthew 26:15",
+                odds: 10000,
+                num: "1",
+                numLabel: "Exact price specification",
+                den: "10,000",
+                denLabel: "Possible transaction amounts",
+                logic: "Both the currency type (silver) and exact count (30) were specified centuries before the event. This accounts for all possible betrayal prices."
+            },
+            {
+                id: 6,
+                name: "Money → Potter's Field",
+                ref: "Zechariah 11:13 → Matthew 27:7",
+                odds: 100000,
+                num: "1",
+                numLabel: "Specific money disposition",
+                den: "100,000",
+                denLabel: "Possible outcomes",
+                logic: "A chain of specific events: money thrown in temple, then used to purchase a potter's field for burial. The compound probability of this sequence."
+            },
+            {
+                id: 7,
+                name: "Silent at Trial",
+                ref: "Isaiah 53:7 → Matthew 27:12",
+                odds: 1000,
+                num: "1",
+                numLabel: "Defense strategy type",
+                den: "1,000",
+                denLabel: "Trial behavior variations",
+                logic: "Refusing legal defense when facing execution contradicts basic self-preservation instinct. This behavior is statistically exceptional."
+            },
+            {
+                id: 8,
+                name: "Execution: Crucifixion",
+                ref: "Psalm 22:16 → John 20:25",
+                odds: 10000,
+                num: "1",
+                numLabel: "Execution method specification",
+                den: "10,000",
+                denLabel: "Historical execution methods",
+                logic: "Description of pierced hands and feet written ~1000 years before crucifixion was invented by the Romans. The text describes a death method unknown to its author."
+            }
+        ];
+
+        // ============================================
+        // STATE
+        // ============================================
+        let selected = new Set();
+        let milestoneShown = false;
+
+        // ============================================
+        // DOM
+        // ============================================
+        const grid = document.getElementById('grid');
+        const slider = document.getElementById('slider');
+        const sliderFill = document.getElementById('slider-fill');
+        const confReadout = document.getElementById('conf-readout');
+        const totalOdds = document.getElementById('total-odds');
+        const selectedCount = document.getElementById('selected-count');
+        const shareBtn = document.getElementById('share-btn');
+        const bottomBar = document.getElementById('bottom-bar');
+        const modal = document.getElementById('modal');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const toast = document.getElementById('toast');
+
+        // ============================================
+        // BUILD CARDS
+        // ============================================
+        prophecies.forEach((p, i) => {
+            const card = document.createElement('div');
+            card.className = 'data-card';
+            card.innerHTML = `
+                <div class="card-number">0${i + 1}</div>
+                <h3 class="card-title">${p.name}</h3>
+                <p class="card-source">${p.ref}</p>
+                <div class="card-odds">
+                    <span class="card-odds-value">1 in ${p.odds.toLocaleString()}</span>
+                    <span class="card-odds-label">base odds</span>
+                </div>
+                <button class="view-math-btn" onclick="event.stopPropagation(); showDetails(${i})">
+                    View math →
+                </button>
+            `;
+            card.onclick = () => toggleSelection(card, i);
+            grid.appendChild(card);
+
+            gsap.fromTo(card, 
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.4, delay: 0.05 + i * 0.05, ease: 'power2.out' }
+            );
+        });
+
+        // ============================================
+        // SELECTION
+        // ============================================
+        function toggleSelection(card, index) {
+            card.classList.toggle('selected');
+            
+            if (selected.has(index)) {
+                selected.delete(index);
+            } else {
+                selected.add(index);
+            }
+
+            calculate();
+        }
+
+        // ============================================
+        // SLIDER
+        // ============================================
+        slider.oninput = () => {
+            const val = slider.value;
+            confReadout.innerText = val;
+            sliderFill.style.width = val + '%';
+            calculate();
+        };
+
+        // ============================================
+        // CALCULATION
+        // ============================================
+        function calculate() {
+            const factor = slider.value / 100;
+            let total = 1;
+
+            selected.forEach(i => {
+                let adjusted = prophecies[i].odds * factor;
+                if (adjusted < 2) adjusted = 2;
+                total *= adjusted;
+            });
+
+            selectedCount.innerText = selected.size;
+
+            if (selected.size === 0) {
+                totalOdds.innerText = '1 in 1';
+            } else {
+                const exp = Math.floor(Math.log10(total));
+                const mantissa = total / Math.pow(10, exp);
+
+                if (exp < 6) {
+                    totalOdds.innerText = '1 in ' + Math.round(total).toLocaleString();
+                } else {
+                    totalOdds.innerHTML = '1 in ' + mantissa.toFixed(1) + '×10<sup>' + exp + '</sup>';
+                }
+
+                if (exp >= 17) {
+                    document.getElementById('scale-texas').classList.add('active');
+                    
+                    if (!milestoneShown) {
+                        milestoneShown = true;
+                        showMilestone();
+                    }
+                }
+
+                if (exp >= 80) {
+                    document.getElementById('scale-universe').classList.add('active');
+                }
+            }
+
+            if (selected.size >= 1) {
+                shareBtn.classList.add('visible');
+            } else {
+                shareBtn.classList.remove('visible');
+            }
+        }
+
+        // ============================================
+        // INFO MODALS
+        // ============================================
+        function showASAModal() {
+            document.getElementById('asa-modal').classList.add('active');
+            modalOverlay.classList.add('active');
+        }
+
+        function showPeerReviewModal() {
+            document.getElementById('peer-modal').classList.add('active');
+            modalOverlay.classList.add('active');
+        }
+
+        function closeInfoModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            if (!modal.classList.contains('active') && !toast.classList.contains('active')) {
+                modalOverlay.classList.remove('active');
+            }
+        }
+
+        modalOverlay.onclick = function() {
+            closeModal();
+            closeInfoModal('asa-modal');
+            closeInfoModal('peer-modal');
+            closeToast();
+        };
+
+        // ============================================
+        // DETAILS MODAL
+        // ============================================
+        function showDetails(index) {
+            const p = prophecies[index];
+            
+            document.getElementById('modal-title').innerText = p.name;
+            document.getElementById('modal-source').innerText = p.ref;
+            document.getElementById('m-num').innerText = p.num;
+            document.getElementById('m-num-label').innerText = p.numLabel;
+            document.getElementById('m-den').innerText = p.den;
+            document.getElementById('m-den-label').innerText = p.denLabel;
+            document.getElementById('m-logic').innerText = p.logic;
+            document.getElementById('m-result').innerText = '1 in ' + p.odds.toLocaleString();
+
+            modal.classList.add('active');
+            modalOverlay.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            if (!document.getElementById('asa-modal').classList.contains('active') && 
+                !document.getElementById('peer-modal').classList.contains('active') &&
+                !toast.classList.contains('active')) {
+                modalOverlay.classList.remove('active');
+            }
+        }
+
+        // ============================================
+        // MILESTONE
+        // ============================================
+        function showMilestone() {
+            document.getElementById('toast-title').innerText = 'Texas Scale Reached';
+            document.getElementById('toast-message').innerText = 
+                'You\'ve hit 10¹⁷—the equivalent of covering Texas 2 feet deep in silver dollars and finding one marked coin blindfolded.';
+            
+            toast.classList.add('active');
+            modalOverlay.classList.add('active');
+        }
+
+        function closeToast() {
+            toast.classList.remove('active');
+            if (!modal.classList.contains('active') &&
+                !document.getElementById('asa-modal').classList.contains('active') &&
+                !document.getElementById('peer-modal').classList.contains('active')) {
+                modalOverlay.classList.remove('active');
+            }
+        }
+
+        // ============================================
+        // SHARE PREVIEW
+        // ============================================
+        function previewShareCard() {
+            // Generate preview on smaller canvas
+            const canvas = document.getElementById('previewCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, 540, 540);
+
+            // Subtle noise texture
+            ctx.fillStyle = 'rgba(255,255,255,0.02)';
+            for (let i = 0; i < 500; i++) {
+                ctx.fillRect(Math.random() * 540, Math.random() * 540, 1, 1);
+            }
+
+            // Logo
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '300 36px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('OddsAre', 270, 140);
+            
+            ctx.font = '900 36px Inter, sans-serif';
+            ctx.fillText('Jesus', 270, 180);
+
+            // Divider line
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(195, 210);
+            ctx.lineTo(345, 210);
+            ctx.stroke();
+
+            // Stats
+            ctx.fillStyle = '#8A8A8F';
+            ctx.font = '500 14px Inter, sans-serif';
+            ctx.fillText(`${selected.size} prophecies analyzed`, 270, 260);
+
+            // Main result
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '700 44px JetBrains Mono, monospace';
+            const oddsText = totalOdds.innerText;
+            ctx.fillText(oddsText, 270, 320);
+
+            // Skepticism
+            ctx.fillStyle = '#8A8A8F';
+            ctx.font = '500 14px Inter, sans-serif';
+            ctx.fillText(`Skepticism factor: ${slider.value}%`, 270, 365);
+
+            // Scale comparison
+            const factor = slider.value / 100;
+            let total = 1;
+            selected.forEach(i => {
+                let adjusted = prophecies[i].odds * factor;
+                if (adjusted < 2) adjusted = 2;
+                total *= adjusted;
+            });
+            const exp = Math.floor(Math.log10(total));
+
+            if (exp >= 17) {
+                ctx.fillStyle = '#6E6E73';
+                ctx.font = '400 12px Inter, sans-serif';
+                ctx.fillText('Greater than silver dollars covering Texas 2ft deep', 270, 410);
+            }
+
+            // CTA
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '600 16px Inter, sans-serif';
+            ctx.fillText('OddsAreJesus.com', 270, 480);
+
+            // Footer
+            ctx.fillStyle = '#404040';
+            ctx.font = '400 10px Inter, sans-serif';
+            ctx.fillText('Mathematics verified by American Scientific Affiliation', 270, 510);
+
+            // Show modal
+            document.getElementById('share-preview-modal').classList.add('active');
+            modalOverlay.classList.add('active');
+        }
+
+        function downloadShareCard() {
+            // Generate full-size card
+            const canvas = document.getElementById('shareCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, 1080, 1080);
+
+            // Subtle noise texture
+            ctx.fillStyle = 'rgba(255,255,255,0.02)';
+            for (let i = 0; i < 1000; i++) {
+                ctx.fillRect(Math.random() * 1080, Math.random() * 1080, 1, 1);
+            }
+
+            // Logo
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '300 72px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('OddsAre', 540, 280);
+            
+            ctx.font = '900 72px Inter, sans-serif';
+            ctx.fillText('Jesus', 540, 360);
+
+            // Divider line
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(390, 420);
+            ctx.lineTo(690, 420);
+            ctx.stroke();
+
+            // Stats
+            ctx.fillStyle = '#8A8A8F';
+            ctx.font = '500 24px Inter, sans-serif';
+            ctx.fillText(`${selected.size} prophecies analyzed`, 540, 500);
+
+            // Main result
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '700 80px JetBrains Mono, monospace';
+            ctx.fillText(totalOdds.innerText, 540, 620);
+
+            // Skepticism
+            ctx.fillStyle = '#8A8A8F';
+            ctx.font = '500 24px Inter, sans-serif';
+            ctx.fillText(`Skepticism factor: ${slider.value}%`, 540, 700);
+
+            // Scale comparison
+            const factor = slider.value / 100;
+            let total = 1;
+            selected.forEach(i => {
+                let adjusted = prophecies[i].odds * factor;
+                if (adjusted < 2) adjusted = 2;
+                total *= adjusted;
+            });
+            const exp = Math.floor(Math.log10(total));
+
+            if (exp >= 17) {
+                ctx.fillStyle = '#6E6E73';
+                ctx.font = '400 20px Inter, sans-serif';
+                ctx.fillText('Greater than silver dollars covering Texas 2ft deep', 540, 780);
+            }
+
+            // CTA
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '600 28px Inter, sans-serif';
+            ctx.fillText('Calculate yours at OddsAreJesus.com', 540, 920);
+
+            // Footer
+            ctx.fillStyle = '#404040';
+            ctx.font = '400 16px Inter, sans-serif';
+            ctx.fillText('Mathematics verified by American Scientific Affiliation', 540, 1000);
+
+            // Download
+            const link = document.createElement('a');
+            link.download = 'oddsarejesus-proof.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+            // Close modal
+            closeInfoModal('share-preview-modal');
+
+            // Show confirmation
+            document.getElementById('toast-title').innerText = 'Downloaded!';
+            document.getElementById('toast-message').innerText = 'Your share card is ready. Post it everywhere!';
+            toast.classList.add('active');
+            modalOverlay.classList.add('active');
+        }
+
+        function copyShareLink() {
+            const count = selected.size;
+            const oddsText = totalOdds.innerText;
+            const text = `I analyzed ${count} historical prophecies. The odds of one person fulfilling them by chance? ${oddsText}. Calculate yours: https://oddsarejesus.com`;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                closeInfoModal('share-preview-modal');
+                document.getElementById('toast-title').innerText = 'Link Copied!';
+                document.getElementById('toast-message').innerText = 'Share text copied to clipboard. Paste it anywhere!';
+                toast.classList.add('active');
+                modalOverlay.classList.add('active');
+            });
+        }
+
+        // ============================================
+        // MERCH STORE
+        // ============================================
+        const merchSelections = {
+            tshirt: { color: 'black', size: 'L' },
+            mug: { size: '11oz' },
+            hat: { size: 'Adjustable' }
+        };
+
+        function openMerchStore() {
+            document.getElementById('merch-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function changeTshirtImage(color, btn) {
+            const img = document.getElementById('tshirt-main-img');
+            if (color === 'black') {
+                img.src = 'merch-tshirt-black.png';
+            } else {
+                img.src = 'merch-tshirt-white.png';
+            }
+            
+            // Update thumbnails
+            const thumbs = btn.parentElement.querySelectorAll('.thumb');
+            thumbs.forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function selectTshirtColor(color, btn) {
+            merchSelections.tshirt.color = color;
+            
+            // Update swatches
+            const swatches = btn.parentElement.querySelectorAll('.swatch');
+            swatches.forEach(s => s.classList.remove('selected'));
+            btn.classList.add('selected');
+            
+            // Also change main image
+            const img = document.getElementById('tshirt-main-img');
+            if (color === 'black') {
+                img.src = 'merch-tshirt-black.png';
+            } else {
+                img.src = 'merch-tshirt-white.png';
+            }
+            
+            // Update thumbnails active state
+            const thumbs = document.querySelectorAll('#product-tshirt .thumb');
+            thumbs.forEach(t => t.classList.remove('active'));
+            thumbs[color === 'black' ? 0 : 1].classList.add('active');
+        }
+
+        function changeHatImage(view, btn) {
+            const img = document.getElementById('hat-main-img');
+            if (view === 'front') {
+                img.src = 'merch-hat-front.png';
+            } else {
+                img.src = 'merch-hat-back.png';
+            }
+            
+            // Update thumbnails
+            const thumbs = btn.parentElement.querySelectorAll('.thumb');
+            thumbs.forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function selectSize(item, size, btn) {
+            merchSelections[item].size = size;
+            
+            // Update pills
+            const pills = btn.parentElement.querySelectorAll('.pill');
+            pills.forEach(p => p.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function buyItem(item) {
+            const selection = merchSelections[item];
+            let itemName, price;
+
+            switch(item) {
+                case 'tshirt':
+                    itemName = `Classic Tee (${selection.color}, ${selection.size})`;
+                    price = 28;
+                    break;
+                case 'mug':
+                    itemName = `Coffee Mug (${selection.size})`;
+                    price = 18;
+                    break;
+                case 'hat':
+                    itemName = `Snapback Cap (${selection.size})`;
+                    price = 24;
+                    break;
+            }
+
+            // Close merch modal
+            closeInfoModal('merch-modal');
+            
+            // Show confirmation toast
+            document.getElementById('toast-title').innerText = 'Coming Soon!';
+            document.getElementById('toast-message').innerText = `${itemName} — $${price}\n\nStore launching soon! Follow @OddsAreJesus for updates.`;
+            toast.classList.add('active');
+            modalOverlay.classList.add('active');
+
+            // TODO: Replace with actual checkout
+            // window.open(`https://your-store.com/checkout?item=${item}&...`, '_blank');
+        }
+
+        // Override closeInfoModal for merch modal
+        const originalCloseInfoModal = closeInfoModal;
+        closeInfoModal = function(modalId) {
+            if (modalId === 'merch-modal') {
+                document.getElementById('merch-modal').classList.remove('active');
+                document.body.style.overflow = '';
+                return;
+            }
+            originalCloseInfoModal(modalId);
+        };
+
+        // ============================================
+        // SHARE CARD (keeping for bottom bar button)
+        // ============================================
+        function generateShareCard() {
+            const canvas = document.getElementById('shareCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, 1080, 1080);
+
+            // Subtle noise texture (simulated)
+            ctx.fillStyle = 'rgba(255,255,255,0.02)';
+            for (let i = 0; i < 1000; i++) {
+                ctx.fillRect(Math.random() * 1080, Math.random() * 1080, 1, 1);
+            }
+
+            // Logo
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '300 72px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('OddsAre', 540, 280);
+            
+            ctx.font = '900 72px Inter, sans-serif';
+            ctx.fillText('Jesus', 540, 360);
+
+            // Divider line
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(390, 420);
+            ctx.lineTo(690, 420);
+            ctx.stroke();
+
+            // Stats
+            ctx.fillStyle = '#737373';
+            ctx.font = '500 24px Inter, sans-serif';
+            ctx.fillText(`${selected.size} prophecies analyzed`, 540, 500);
+
+            // Main result
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '700 80px JetBrains Mono, monospace';
+            const oddsText = totalOdds.innerText;
+            ctx.fillText(oddsText, 540, 620);
+
+            // Skepticism
+            ctx.fillStyle = '#737373';
+            ctx.font = '500 24px Inter, sans-serif';
+            ctx.fillText(`Skepticism factor: ${slider.value}%`, 540, 700);
+
+            // Scale comparison
+            const factor = slider.value / 100;
+            let total = 1;
+            selected.forEach(i => {
+                let adjusted = prophecies[i].odds * factor;
+                if (adjusted < 2) adjusted = 2;
+                total *= adjusted;
+            });
+            const exp = Math.floor(Math.log10(total));
+
+            if (exp >= 17) {
+                ctx.fillStyle = '#525252';
+                ctx.font = '400 20px Inter, sans-serif';
+                ctx.fillText('Greater than silver dollars covering Texas 2ft deep', 540, 780);
+            }
+
+            // CTA
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '600 28px Inter, sans-serif';
+            ctx.fillText('Calculate yours at OddsAreJesus.com', 540, 920);
+
+            // Footer
+            ctx.fillStyle = '#404040';
+            ctx.font = '400 16px Inter, sans-serif';
+            ctx.fillText('Mathematics verified by American Scientific Affiliation', 540, 1000);
+
+            // Download
+            const link = document.createElement('a');
+            link.download = 'oddsarejesus-proof.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // ============================================
+        // OG IMAGE GENERATOR
+        // ============================================
+        function generateOGImage() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 630;
+            const ctx = canvas.getContext('2d');
+
+            // Black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, 1200, 630);
+
+            // Logo
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '300 64px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('OddsAre', 600, 220);
+            
+            ctx.font = '900 64px Inter, sans-serif';
+            ctx.fillText('Jesus', 600, 290);
+
+            // Tagline
+            ctx.fillStyle = '#737373';
+            ctx.font = '400 24px Inter, sans-serif';
+            ctx.fillText('The Mathematics of Prophecy', 600, 360);
+
+            // Big number
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '700 72px JetBrains Mono, monospace';
+            ctx.fillText('1 in 10¹⁷', 600, 480);
+
+            // CTA
+            ctx.fillStyle = '#525252';
+            ctx.font = '500 20px Inter, sans-serif';
+            ctx.fillText('Calculate the odds yourself', 600, 560);
+
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // ============================================
+        // ANIMATIONS
+        // ============================================
+        gsap.fromTo('.header', 
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }
+        );
+
+        gsap.fromTo('.verification', 
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5, delay: 0.2, ease: 'power2.out' }
+        );
+
+        gsap.fromTo('.control-panel', 
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5, delay: 0.3, ease: 'power2.out' }
+        );
+
+        gsap.fromTo('.bottom-bar', 
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, delay: 0.8, ease: 'power2.out' }
+        );
+    </script>
+</body>
+</html>
