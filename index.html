@@ -823,6 +823,27 @@
             font-weight: 700;
         }
 
+        .modal-return-btn {
+            display: block;
+            width: 100%;
+            margin-top: 24px;
+            padding: 16px;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 100px;
+            color: var(--gray-300);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-return-btn:hover {
+            background: var(--gray-700);
+            color: var(--white);
+        }
+
         /* Info Modal */
         .info-modal {
             position: fixed;
@@ -1866,7 +1887,7 @@
         <div class="modal-handle" onclick="closeModal()"></div>
         <div class="modal-header">
             <h3 class="modal-title" id="modal-title">Data Point</h3>
-            <p class="modal-source" id="modal-source">Source Reference</p>
+            <p class="modal-source"><a class="scripture-link" id="modal-scripture-link" onclick="">Source Reference</a></p>
         </div>
         
         <div class="math-grid">
@@ -1892,6 +1913,10 @@
             <div class="result-box-label">Probability</div>
             <div class="result-box-value" id="m-result">1 in X</div>
         </div>
+
+        <button class="modal-return-btn" onclick="closeModal()">
+            ← Return to Calculator
+        </button>
     </div>
 
     <!-- ASA Modal -->
@@ -2676,11 +2701,23 @@
         // ============================================
         // DETAILS MODAL
         // ============================================
+        const scriptureKeys = [
+            'birthplace', 'messenger', 'entry', 'betrayal', 
+            'price', 'potters', 'silent', 'crucifixion'
+        ];
+
         function showDetails(index) {
             const p = prophecies[index];
             
             document.getElementById('modal-title').innerText = p.name;
-            document.getElementById('modal-source').innerText = p.ref;
+            
+            // Set up scripture link
+            const scriptureLink = document.getElementById('modal-scripture-link');
+            scriptureLink.innerText = p.ref;
+            scriptureLink.onclick = function() {
+                showScriptureModal(scriptureKeys[index]);
+            };
+            
             document.getElementById('m-num').innerText = p.num;
             document.getElementById('m-num-label').innerText = p.numLabel;
             document.getElementById('m-den').innerText = p.den;
