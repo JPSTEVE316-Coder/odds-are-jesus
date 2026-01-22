@@ -2025,6 +2025,9 @@
                             <button class="thumb" onclick="changeHatImage('back', this)">
                                 <img src="merch-hat-back.png" alt="Back">
                             </button>
+                            <button class="thumb" onclick="changeHatImage('lifestyle', this)">
+                                <img src="merch-lifestyle.png" alt="Lifestyle">
+                            </button>
                         </div>
                     </div>
                     <div class="product-info">
@@ -2738,8 +2741,10 @@
             const img = document.getElementById('hat-main-img');
             if (view === 'front') {
                 img.src = 'merch-hat-front.png';
-            } else {
+            } else if (view === 'back') {
                 img.src = 'merch-hat-back.png';
+            } else if (view === 'lifestyle') {
+                img.src = 'merch-lifestyle.png';
             }
             
             // Update thumbnails
