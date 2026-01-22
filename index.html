@@ -2476,7 +2476,7 @@
             ctx.font = '500 14px Inter, sans-serif';
             ctx.fillText(`Skepticism factor: ${slider.value}%`, 270, 365);
 
-            // Scale comparison
+            // Scale comparison - powerful statement
             const factor = slider.value / 100;
             let total = 1;
             selected.forEach(i => {
@@ -2486,10 +2486,34 @@
             });
             const exp = Math.floor(Math.log10(total));
 
-            if (exp >= 17) {
-                ctx.fillStyle = '#6E6E73';
-                ctx.font = '400 12px Inter, sans-serif';
-                ctx.fillText('Greater than silver dollars covering Texas 2ft deep', 270, 410);
+            // Add impactful statement based on scale
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '600 13px Inter, sans-serif';
+            
+            let statement = '';
+            if (exp >= 17 && exp < 30) {
+                statement = 'Like finding one marked coin in silver dollars';
+                ctx.fillText(statement, 270, 410);
+                ctx.fillText('covering Texas 2 feet deep. Blindfolded.', 270, 428);
+            } else if (exp >= 30 && exp < 50) {
+                statement = 'Like picking one specific atom from';
+                ctx.fillText(statement, 270, 410);
+                ctx.fillText('all the grains of sand on Earth.', 270, 428);
+            } else if (exp >= 50) {
+                statement = 'Like picking one specific atom from';
+                ctx.fillText(statement, 270, 410);
+                ctx.fillText('the entire observable universe.', 270, 428);
+            } else if (exp >= 10) {
+                statement = 'More unlikely than winning the lottery';
+                ctx.fillText(statement, 270, 410);
+                ctx.fillText('multiple times in a row.', 270, 428);
+            }
+
+            // The kicker - what it means
+            if (selected.size >= 2) {
+                ctx.fillStyle = '#FFFFFF';
+                ctx.font = '700 14px Inter, sans-serif';
+                ctx.fillText('Coincidence? Or evidence?', 270, 460);
             }
 
             // CTA
@@ -2585,20 +2609,39 @@
             ctx.font = '500 24px Inter, sans-serif';
             ctx.fillText(`Skepticism factor: ${slider.value}%`, 540, 700);
 
-            // Scale comparison
-            const factor = slider.value / 100;
-            let total = 1;
+            // Scale comparison - powerful statement
+            const factorFull = slider.value / 100;
+            let totalFull = 1;
             selected.forEach(i => {
-                let adjusted = prophecies[i].odds * factor;
+                let adjusted = prophecies[i].odds * factorFull;
                 if (adjusted < 2) adjusted = 2;
-                total *= adjusted;
+                totalFull *= adjusted;
             });
-            const exp = Math.floor(Math.log10(total));
+            const expFull = Math.floor(Math.log10(totalFull));
 
-            if (exp >= 17) {
-                ctx.fillStyle = '#6E6E73';
-                ctx.font = '400 20px Inter, sans-serif';
-                ctx.fillText('Greater than silver dollars covering Texas 2ft deep', 540, 780);
+            // Add impactful statement based on scale
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '600 22px Inter, sans-serif';
+            
+            if (expFull >= 17 && expFull < 30) {
+                ctx.fillText('Like finding one marked coin in silver dollars', 540, 760);
+                ctx.fillText('covering Texas 2 feet deep. Blindfolded.', 540, 788);
+            } else if (expFull >= 30 && expFull < 50) {
+                ctx.fillText('Like picking one specific atom from', 540, 760);
+                ctx.fillText('all the grains of sand on Earth.', 540, 788);
+            } else if (expFull >= 50) {
+                ctx.fillText('Like picking one specific atom from', 540, 760);
+                ctx.fillText('the entire observable universe.', 540, 788);
+            } else if (expFull >= 10) {
+                ctx.fillText('More unlikely than winning the lottery', 540, 760);
+                ctx.fillText('multiple times in a row.', 540, 788);
+            }
+
+            // The kicker - what it means
+            if (selected.size >= 2) {
+                ctx.fillStyle = '#FFFFFF';
+                ctx.font = '700 26px Inter, sans-serif';
+                ctx.fillText('Coincidence? Or evidence?', 540, 850);
             }
 
             // CTA
