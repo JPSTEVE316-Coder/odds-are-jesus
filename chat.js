@@ -310,6 +310,21 @@
 
   var CHIPS = ["Was Stoner's math peer-reviewed?", "Texas sharpshooter objection?", "Why does it matter?"];
 
+  /* Customer-service intent: operational questions always go to the
+     Customer Service Team, even when they mention a product. Checked
+     before the KB so "return policy for hats" doesn't hit the merch entry. */
+  var CS_KEYWORDS = [
+    "return", "refund", "exchange", "damaged", "broken", "defective",
+    "my order", "order status", "track order", "tracking number",
+    "cancel order", "cancellation",
+    "billing", "charged twice", "payment", "receipt", "invoice",
+    "shipping status", "delivery status", "not arrived", "late delivery",
+    "wrong item", "missing item", "lost package",
+    "unsubscribe", "privacy", "delete my data",
+    "customer service", "help with my order", "file a complaint"
+  ];
+  var CS_REPLY = "That's a customer-service question — returns, orders, shipping, and billing are handled by our Customer Service Team, not by me. Leave your email below and I'll send your question straight to them for a personal follow-up.";
+
   /* ---------------- matching ---------------- */
   function norm(s) {
     return (s || "").toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
@@ -340,6 +355,14 @@
 
   function findReply(text) {
     var n = " " + norm(text) + " ";
+    var c, kw, hit;
+    for (c = 0; c < CS_KEYWORDS.length; c++) {
+      kw = norm(CS_KEYWORDS[c]);
+      hit = kw.indexOf(" ") >= 0
+        ? n.indexOf(" " + kw + " ") >= 0
+        : new RegExp("\\b" + escRe(kw) + "\\b").test(n);
+      if (hit) return CS_REPLY;
+    }
     var best = null, bestScore = 0, i, j;
     for (i = 0; i < KB.length; i++) {
       var score = 0;
@@ -397,6 +420,7 @@
     var answer = findReply(text);
     var isFallback = !answer;
     if (isFallback) { answer = FALLBACKS[fallbackIdx % FALLBACKS.length]; fallbackIdx++; }
+    else if (answer === CS_REPLY) { isFallback = true; /* show the referral capture too */ }
     setTimeout(function () {
       typing(false);
       addMsg("bot", answer, true);
