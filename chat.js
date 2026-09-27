@@ -281,7 +281,7 @@
       r: "Easy: run the calculator, then hit Share to get a card with your number — built for sending to a friend or posting. Find it in the <a href=\"#share\">share section</a>." },
 
     /* ===== SMALL TALK ===== */
-    { k: ["what can you", "what do you know", "help", "topics", "what should i ask"],
+    { k: ["what can you", "what do you know", "topics", "what should i ask"],
       r: "I'm deepest on Stoner — his life, the book, all eight estimates, the 48-prophecy extension — and on the statistics: independence, selection bias, reference classes, Bayesian framing, and every standard objection. Try me: \u201cWas Stoner's math peer-reviewed?\u201d or \u201cWhat's the Texas sharpshooter objection?\u201d" },
 
     { k: ["who are you", "your name", "about yourself", "chance"],
@@ -321,7 +321,11 @@
     "shipping status", "delivery status", "not arrived", "late delivery",
     "wrong item", "missing item", "lost package",
     "unsubscribe", "privacy", "delete my data",
-    "customer service", "help with my order", "file a complaint"
+    "customer service", "help with my order", "file a complaint",
+    "help with an order", "help with the order", "help me with my order",
+    "help me with an order", "about an order", "about my order",
+    "question about an order", "issue with an order", "problem with an order",
+    "problem with my order", "order help", "need help ordering"
   ];
   var CS_REPLY = "That's a customer-service question — returns, orders, shipping, and billing are handled by our Customer Service Team, not by me. Leave your email below and I'll send your question straight to them for a personal follow-up.";
 
