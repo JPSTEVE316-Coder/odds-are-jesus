@@ -18,6 +18,14 @@
 
   var BACKEND_URL = null; // e.g. "https://api.oddsarejesus.com/chat"
 
+  /* Customer Service Team referral: when a question falls outside Chance's
+     scope, he offers to pass it to the Customer Service Team (Rocky).
+     Submissions land in the "OAJ Chance referrals" Google Form; the linked
+     sheet is monitored and every referral gets a personal follow-up. */
+  var REFERRAL_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdIWVTdT8ndzytWrEMd9zg7e3oPx8rH0o8krdsf7TkTddYgHQ/formResponse";
+  var REFERRAL_EMAIL_ENTRY = "entry.1058000927";    // "Your email"
+  var REFERRAL_QUESTION_ENTRY = "entry.1665292420"; // "Your question for our Customer Service Team"
+
   /* ---------------- knowledge base ---------------- */
   // k: match phrases (word-boundary matched, case-insensitive,
   //     singular/plural tolerant). r: reply (may include
@@ -295,9 +303,9 @@
   ];
 
   var FALLBACKS = [
-    "Outside my sources — I work from Stoner's text, the probability, and the standard objections, and I don't improvise past them. What I answer cold: the eight estimates, the 48-prophecy extension, the Texas sharpshooter problem. Try me.",
-    "Don't have that one in my sources. What I know, I know precisely — Stoner's life, his method, all eight estimates, every standard objection. Ask me about those.",
-    "Not in my sources, and I won't guess. The <a href=\"#prophecies\">prophecy deep-dives</a> may cover it — otherwise test me on Stoner's math, where I don't miss."
+    "That's outside my scope — I'm the numbers guy: Stoner's life, the eight estimates, the 48-prophecy extension, the methods, and every standard objection. Want me to pass your question to our Customer Service Team? Leave your email below and they'll follow up with you personally.",
+    "Don't have that one in my sources, and I won't guess. But our Customer Service Team can take it from here — drop your email below and I'll send your question straight to them.",
+    "Not in my sources. The <a href=\"#prophecies\">prophecy deep-dives</a> may cover it — or leave your email below and our Customer Service Team will get back to you directly."
   ];
 
   var CHIPS = ["Was Stoner's math peer-reviewed?", "Texas sharpshooter objection?", "Why does it matter?"];
@@ -387,11 +395,60 @@
   function reply(text) {
     typing(true);
     var answer = findReply(text);
-    if (!answer) { answer = FALLBACKS[fallbackIdx % FALLBACKS.length]; fallbackIdx++; }
+    var isFallback = !answer;
+    if (isFallback) { answer = FALLBACKS[fallbackIdx % FALLBACKS.length]; fallbackIdx++; }
     setTimeout(function () {
       typing(false);
       addMsg("bot", answer, true);
+      if (isFallback) showReferralCapture(text);
     }, 500 + Math.random() * 500);
+  }
+
+  /* Out-of-scope referral: inline email capture so the Customer Service
+     Team can follow up personally. Posts to the referrals Google Form. */
+  function showReferralCapture(question) {
+    var row = el("div", "msg msg-bot referral");
+    var label = el("div", "referral-label", "Email for the follow-up:");
+    var formRow = el("div", "referral-row");
+    var em = document.createElement("input");
+    em.type = "email";
+    em.placeholder = "you@example.com";
+    em.className = "referral-input";
+    em.setAttribute("aria-label", "Email for Customer Service Team follow-up");
+    em.autocomplete = "email";
+    var btn = el("button", "referral-btn", "Send");
+    btn.type = "button";
+    function done(ok) {
+      row.textContent = ok
+        ? "Sent — our Customer Service Team will follow up personally."
+        : "Hmm, that didn't go through. Please try again in a moment.";
+    }
+    function submit() {
+      var v = (em.value || "").trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+        em.focus();
+        em.style.borderColor = "#c0392b";
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      var fd = new FormData();
+      fd.append(REFERRAL_EMAIL_ENTRY, v);
+      fd.append(REFERRAL_QUESTION_ENTRY, question);
+      try {
+        fetch(REFERRAL_FORM_URL, { method: "POST", mode: "no-cors", body: fd })
+          .then(function () { done(true); }, function () { done(false); });
+      } catch (e) { done(false); }
+    }
+    btn.addEventListener("click", submit);
+    em.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+    formRow.appendChild(em);
+    formRow.appendChild(btn);
+    row.appendChild(label);
+    row.appendChild(formRow);
+    log.appendChild(row);
+    log.scrollTop = log.scrollHeight;
+    msgCount++;
   }
 
   function send(text) {
