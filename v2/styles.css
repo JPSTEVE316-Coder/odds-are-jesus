@@ -316,6 +316,10 @@ canvas.sharecard {
 .merch-cta { text-align: center; margin-top: 10px; }
 .buybtn { padding: 18px 16px 20px; min-height: 420px; }
 .buybtn .shopify-buy__product { text-align: left; }
+/* Keep the Shopify Buy Button iframes full-width and visible so the variant
+   selector, quantity, Add to cart, and branded cart stay usable. */
+.buybtn > iframe,
+.buybtn .shopify-buy-frame { display: block !important; width: 100% !important; max-width: none !important; min-height: 132px !important; border: 0 !important; }
 .buybtn-fallback { color: var(--muted); font-size: 14px; text-align: center; padding: 60px 10px; }
 .lifestyle { margin-top: 36px; }
 .lifestyle-title { text-align: center; font-family: var(--font-display); font-size: 21px; font-weight: 700; margin: 0 0 18px; }
