@@ -325,7 +325,9 @@
     "help with an order", "help with the order", "help me with my order",
     "help me with an order", "about an order", "about my order",
     "question about an order", "issue with an order", "problem with an order",
-    "problem with my order", "order help", "need help ordering"
+    "problem with my order", "order help", "need help ordering",
+    "help on an order", "help on my order", "help for my order",
+    "help regarding my order"
   ];
   var CS_REPLY = "That's a customer-service question — returns, orders, shipping, and billing are handled by our Customer Service Team, not by me. Leave your email below and I'll send your question straight to them for a personal follow-up.";
 
