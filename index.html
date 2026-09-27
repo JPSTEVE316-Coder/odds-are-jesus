@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>OddsAreJesus | The Mathematics of Prophecy</title>
+<meta name="description" content="Eight prophecies, written centuries before Jesus was born. Tap the ones you'll grant, drag the doubt dial, and watch the odds. It's just math.">
+<meta name="keywords" content="prophecy probability, messianic prophecies, Peter Stoner, Science Speaks, odds are jesus, bible math, apologetics">
+<meta name="author" content="Odds Are Jesus">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oddsarejesus.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oddsarejesus.com/">
+<meta property="og:title" content="OddsAreJesus | The Mathematics of Prophecy">
+<meta property="og:description" content="Eight prophecies, written centuries before Jesus was born. Tap the ones you'll grant, drag the doubt dial, and watch the odds. It's just math.">
+<meta property="og:image" content="https://oddsarejesus.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Odds Are Jesus">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@oddsarejesus">
+<meta name="twitter:title" content="OddsAreJesus | The Mathematics of Prophecy">
+<meta name="twitter:description" content="Eight prophecies, written centuries before Jesus was born. Tap the ones you'll grant, drag the doubt dial, and watch the odds. It's just math.">
+<meta name="twitter:image" content="https://oddsarejesus.com/og-image.png">
+
+<meta name="theme-color" content="#060606">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%23060606'%20stroke='%23222222'%20stroke-width='2'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Arial,sans-serif'%20font-weight='bold'%20font-size='22'%20fill='white'%20text-anchor='middle'%20letter-spacing='-1'%3EOAJ%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%23060606'%20stroke='%23222222'%20stroke-width='2'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Arial,sans-serif'%20font-weight='bold'%20font-size='22'%20fill='white'%20text-anchor='middle'%20letter-spacing='-1'%3EOAJ%3C/text%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Odds Are Jesus",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "url": "https://oddsarejesus.com/",
+  "description": "An interactive calculator exploring the probability estimates behind eight messianic prophecies, adapted from Peter Stoner's Science Speaks. Adjust the skepticism yourself and see what survives."
+}
+</script>
+
+<!-- Analytics hooks (Plausible) — enable at launch
+<script defer data-domain="oddsarejesus.com" src="https://plausible.io/js/script.js"></script>
+-->
+</head>
+<body id="top">
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Odds Are Jesus — home">
+    <span class="brand-mark" aria-hidden="true">OAJ</span>
+    <span>Odds Are Jesus</span>
+  </a>
+  <div class="bar-readout">
+    <span class="bar-odds" id="barOdds" aria-live="polite">—</span>
+    <span class="count-chip" id="barCount">0/8</span>
+  </div>
+</header>
+
+<main>
+  <!-- (a) HERO + CALCULATOR -->
+  <section class="hero" id="calculator" aria-label="Prophecy probability calculator">
+    <div class="wrap">
+      <h1 class="wordmark">
+        <span class="wm-light">OddsAre</span>
+        <span class="wm-heavy">Jesus</span>
+      </h1>
+      <p class="tagline">It's Just Math.</p>
+      <p class="premise">Eight predictions, written centuries before Jesus was born. Tap the ones you want to test — we'll do the math.</p>
+
+      <div class="video-block">
+        <p class="video-kicker">Watch &mdash; 65 seconds</p>
+        <video class="coin-video" controls playsinline preload="metadata" poster="texas-coin-poster.jpg" aria-label="The Texas Coin: a 65-second visualization of Stoner's 1 in 10 to the 17th probability">
+          <source src="the-texas-coin-v2.mp4" type="video/mp4">
+        </video>
+        <script>
+        (function () {
+          // iPhones/iPads can't stream plain MP4s reliably here, so hand them
+          // Apple's HLS stream instead. Everywhere else keeps the MP4.
+          var v = document.querySelector('.coin-video');
+          if (!v) return;
+          var ua = navigator.userAgent || '';
+          var isIOS = /iPhone|iPad|iPod/.test(ua) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+          if (isIOS) v.src = 'texas-coin.m3u8';
+        })();
+        </script>
+        <p class="video-cap">Stoner&rsquo;s 1 in 10<sup>17</sup>, visualized &mdash; Texas, two feet deep in silver dollars.</p>
+      </div>
+
+      <div class="readout-block">
+        <div class="readout-label" id="readoutLabel">Combined odds</div>
+        <div class="big-odds" id="bigOdds" aria-live="polite">—</div>
+        <div class="word-anchor" id="wordAnchor"></div>
+        <div class="math-steps" id="stepsLine"></div>
+      </div>
+
+      <div class="grid" id="grid" role="group" aria-label="Select prophecies to include"></div>
+      <div class="grid-actions">
+        <button class="textbtn" id="selectAll" type="button">Select all</button>
+        <button class="textbtn" id="clearAll" type="button">Clear</button>
+      </div>
+      <p class="adapted-note">Our eight cards adapt Peter Stoner's list from <em>Science Speaks</em> (1958; first published 1952): we use Isaiah 40:3 for the forerunner (the passage Matthew himself quotes) and Psalm 41:9 for the betrayal (the passage Jesus himself applies to Judas in John 13:18). We use Stoner's own 1-in-1,000 for the thirty pieces of silver.</p>
+    </div>
+  </section>
+
+  <!-- (b) SKEPTICISM SLIDER -->
+  <section class="section steel" id="doubt" aria-label="Skepticism slider">
+    <div class="wrap">
+      <p class="kicker">Steelman mode</p>
+      <h2 class="section-title">Argue against yourself. We'll wait.</h2>
+      <p class="section-sub">Drag the doubt dial. We'll shrink every estimate in your favor and re-run the numbers. The math is stubborn.</p>
+      <div class="slider-wrap">
+        <div class="slider-bubble" id="doubtBubble" aria-hidden="true">100%</div>
+        <input type="range" class="doubt" id="doubt" min="1" max="100" step="1" value="100" aria-label="Skepticism discount percent">
+        <div class="slider-labels"><span>Maximum doubt (1%)</span><span>Stoner's numbers (100%)</span></div>
+      </div>
+      <p class="mono" id="doubtLabel" style="color:var(--muted);font-size:14px;margin-top:14px">Skepticism discount: 100%</p>
+      <p class="slider-micro">Yes, this is a blunt instrument. That's the point — even a blunt discount can't kill the result. And if you'd rather throw a card out entirely, just untap it above.</p>
+    </div>
+  </section>
+
+  <!-- (c) HOW THE MATH WORKS -->
+  <section class="section" id="math" aria-label="How the math works">
+    <div class="wrap">
+      <p class="kicker">The fine print, up front</p>
+      <h2 class="section-title">How the math works</h2>
+      <p class="section-sub">Four things to know. No sleight of hand.</p>
+      <ol class="mathrows">
+        <li>
+          <span class="n" aria-hidden="true">1</span>
+          <p><strong>Multiply the long shots.</strong> Stoner asked his students: for each prophecy, what are the odds one random person matches it? Bethlehem birth: 1 in 280,000. Preceded by a messenger: 1 in 1,000. And so on. Multiply all eight — first-week statistics — and one person faces about 1 in 10²⁸. Then Stoner steel-manned the skeptic: divide by the ~88 billion people who've lived since the prophecies were written ("with that many people, someone was bound to match"). Leftover: 1 in 10¹⁷. Picture Texas two feet deep in silver dollars, one marked, found blindfolded. The arithmetic checks out.</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">2</span>
+          <p><strong>The numbers are judgment calls.</strong> Seven of the eight are educated guesses, not measurements — Stoner says so himself. Three times his students argued for bigger odds and he deliberately picked smaller ones. Disagree with an estimate? Good. That's exactly what the doubt dial is for.</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">3</span>
+          <p><strong>Independence is the weak link.</strong> Multiplying only works if each prophecy is independent. Three aren't — the betrayal, the thirty coins, and the potter's field are one connected story (Zechariah 11:12–13). We're telling you before the critics do. Merge them into a single event in the deep-dives, or just uncheck them.</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">4</span>
+          <p><strong>Surprising isn't the same as proven.</strong> The number measures how shocking a chance match would be — not what you should conclude. Stoner picked these 8 from 300+ candidates. Some fulfillments may have been arranged — the Gospels say Jesus set up the donkey himself. And no equation can tell you whether the Gospels report history or shape it. That's your call.</p>
+        </li>
+      </ol>
+      <div class="stoner-quote">
+        <blockquote>“If the reader does not agree with the estimates given, he may make his own estimates and then carry them through to their logical conclusions.”</blockquote>
+        <cite>— Peter W. Stoner, <em>Science Speaks</em>. That's exactly what the controls on this page do. Weaken every assumption, uncheck the ones you don't buy, and watch the total. If the case can't survive your skepticism, it doesn't deserve your belief — and if it can, that's worth knowing too.</cite>
+      </div>
+      <a class="nextlink" href="#prophecies">Read the prophecy-by-prophecy breakdown ↓</a>
+    </div>
+  </section>
+
+  <!-- (d) PROPHECY DEEP-DIVES -->
+  <section class="section" id="prophecies" aria-label="Prophecy deep dives">
+    <div class="wrap">
+      <p class="kicker">Show your work</p>
+      <h2 class="section-title">The eight, up close</h2>
+      <p class="section-sub">Every assumption, every text, every objection we'd raise against ourselves. Tap a row to open it.</p>
+      <div class="accordion" id="accordion"></div>
+    </div>
+  </section>
+
+  <!-- (e) SHARE -->
+  <section class="section" id="share" aria-label="Share your result">
+    <div class="wrap">
+      <p class="kicker">Prove it to a friend</p>
+      <h2 class="section-title">I ran the numbers.</h2>
+      <div class="sharegrid">
+        <div>
+          <p class="share-preview-note">Your exact result, your exact skepticism settings. Screenshot-proof.</p>
+          <canvas class="sharecard" id="sharePreview" width="540" height="540" aria-label="Shareable result card preview"></canvas>
+        </div>
+        <div class="share-btns">
+          <button class="btn btn-primary" id="dlBtn" type="button">Download image</button>
+          <button class="btn btn-secondary" id="copyBtn" type="button">Copy link</button>
+          <button class="btn btn-secondary" id="nativeShare" type="button" hidden>Share…</button>
+          <div class="copied-note" id="copiedNote" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (f) JOIN THE TEAM -->
+  <section class="section" id="join" aria-label="Join the team">
+    <div class="wrap">
+      <div class="joinbox">
+        <p class="kicker">Join the team</p>
+        <h2 class="section-title">Get the drop first.</h2>
+        <p class="section-sub">New prophecies, new merch, new arguments. One email a month, zero spam — we're too busy doing math.</p>
+        <form id="joinForm" hidden novalidate>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+            <label class="sr-only" for="email" style="position:absolute;left:-9999px">Email address</label>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"
+                   style="flex:1 1 220px;min-height:56px;border-radius:18px;border:1px solid var(--line);background:var(--panel);color:var(--paper);padding:0 20px;font-size:16px">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+            <button class="btn btn-primary" type="submit">Count me in</button>
+          </div>
+        </form>
+        <div id="joinSoon" hidden>
+          <span class="soon-chip">📬 Email capture launches with the site — check back soon.</span>
+          <p class="privacy">We're not collecting addresses until the real list is live. No fake forms here.</p>
+        </div>
+        <p class="privacy">No spam, ever. Unsubscribe anytime. We never sell your email.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- (g) MERCH -->
+  <section class="section" id="merch" aria-label="Merch">
+    <div class="wrap">
+      <p class="kicker">Wear the math</p>
+      <h2 class="section-title">Start the conversation.</h2>
+      <p class="section-sub">The uniform for people who like their small talk with a side of statistics.</p>
+      <div class="banner-img">
+        <img src="merch-lifestyle.png" alt="Two people wearing Odds Are Jesus caps and a tee" loading="lazy" decoding="async">
+      </div>
+      <div class="carousel" role="list">
+        <div class="mcard" role="listitem">
+          <div id="buybtn-tee" class="buybtn" aria-live="polite"></div>
+        </div>
+        <div class="mcard" role="listitem">
+          <div id="buybtn-cap" class="buybtn" aria-live="polite"></div>
+        </div>
+        <div class="mcard" role="listitem">
+          <div id="buybtn-mug" class="buybtn" aria-live="polite"></div>
+        </div>
+      </div>
+      <p class="ship-strip"><span>&#10003; 100% of profits fund missions</span></p>
+      <div class="lifestyle">
+        <p class="lifestyle-title">Start the conversation with the curious.</p>
+        <div class="carousel" role="list">
+          <div class="mcard" role="listitem">
+            <div class="imgwrap"><img src="merch-life-tee.png" alt="Young man wearing the Odds Are Jesus tee on a college campus" loading="lazy" decoding="async"></div>
+          </div>
+          <div class="mcard" role="listitem">
+            <div class="imgwrap"><img src="merch-life-women.png" alt="Two young women laughing, wearing the Odds Are Jesus tee and cap" loading="lazy" decoding="async"></div>
+          </div>
+          <div class="mcard" role="listitem">
+            <div class="imgwrap"><img src="merch-life-mug.png" alt="Hands holding the black and gold Odds Are Jesus mug in morning light" loading="lazy" decoding="async"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (h) MISSION FUNDING -->
+  <section class="section" id="missions" aria-label="Mission funding">
+    <div class="wrap">
+      <p class="kicker">Where the money goes</p>
+      <h2 class="section-title">Every dollar of profit funds missions.</h2>
+      <p class="section-sub">Odds Are Jesus is a merch engine for mission work. 100% of net profits go to Christian ministries our friends run — after a few hundred dollars a month to keep this site running. Not to us.</p>
+      <div class="partners">
+        <div class="partner">
+          <div class="pname">Scripture in heart languages</div>
+          <div class="pfocus">First-language Bible access for unreached peoples in restricted regions.</div>
+        </div>
+        <div class="partner">
+          <div class="pname">Church planting &amp; pastoral training</div>
+          <div class="pfocus">New churches planted and pastors trained where the need is greatest.</div>
+        </div>
+        <div class="partner">
+          <div class="pname">Next-generation leaders</div>
+          <div class="pfocus">Future Christian leaders raised up through global missions and relief work.</div>
+        </div>
+      </div>
+      <p class="pledge">We'll publish a public giving report every year. If we ever change this split, you'll hear it here first.</p>
+    </div>
+  </section>
+  <!-- (i) THE PUNCHLINE -->
+  <section class="section punch" id="punchline" aria-label="The punchline">
+    <div class="wrap">
+      <p class="kicker">The punchline</p>
+      <h2 class="section-title">Eight was just the warm-up.</h2>
+      <p>Everything you just ran was <strong>eight</strong> prophecies. Eight.</p>
+      <p>Stoner didn't stop there either. He extended the same math to <strong>48 prophecies</strong> and landed on <span class="mono">1 in 10<sup>157</sup></span> — a one followed by 157 zeros. His illustration: a solid ball of electrons stretching across the universe. Mark one. Find it blindfolded.</p>
+      <p>And the catalogs keep going. Lists of Old Testament passages the New Testament applies to Jesus run past <strong>300</strong> — some top <strong>365</strong>. Not every one is equally strong; we'll say that before anyone else does. Some are dependent. Some may have been arranged. Some are weakly supported. List size alone proves nothing. But the bar is clear: each additional <em>specific, independent, well-supported</em> prophecy with a defensible estimate pushes the number further.</p>
+      <p class="punch-close">We gave you eight. We handed you the doubt dial. We told you every weakness first. The math survived. <strong>Now imagine 300 — done right.</strong></p>
+      <a class="nextlink" href="#calculator">Run the eight again ↑</a>
+    </div>
+  </section>
+  <section class="section follow" id="follow" aria-label="Follow us on Instagram">
+    <div class="wrap">
+      <p class="kicker">Come say hi</p>
+      <h2 class="section-title">Follow Us on Instagram</h2>
+      <p class="section-sub">The math, the merch drops, the mission — <strong>@oddsarejesus</strong>. Run the numbers with us.</p>
+      <a class="btn btn-primary" href="https://www.instagram.com/oddsarejesus/?utm_source=website&amp;utm_medium=follow_band&amp;utm_campaign=launch" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Follow @oddsarejesus</a>
+    </div>
+  </section>
+</main>
+
+<!-- (i) FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-wordmark">
+      <span class="wm-light">OddsAre</span>
+      <span class="wm-heavy">Jesus</span>
+    </div>
+    <p class="foot-tag">It's Just Math.</p>
+
+    <div class="sources">
+      <h3>Sources &amp; further reading</h3>
+      <ol>
+        <li>Read Stoner yourself — <a href="http://sciencespeaks.dstoner.net/Christ_of_Prophecy.html" target="_blank" rel="noopener"><em>Science Speaks</em>, Ch. 3 “The Christ of Prophecy”</a> (full text, official online edition).</li>
+        <li><a href="https://archive.org/stream/sciencespeakspeterw.stoner/SCIENCE%20SPEAKS-%20Peter%20W.%20Stoner_djvu.txt" target="_blank" rel="noopener">Scanned original text</a> (Internet Archive).</li>
+        <li>Who the American Scientific Affiliation is, <a href="https://asa3.org/ASA/education/aboutasa/index.html" target="_blank" rel="noopener">in their own words</a> (a fellowship of Christian scientists).</li>
+        <li>Look up every verse — <a href="https://www.biblegateway.com/" target="_blank" rel="noopener">BibleGateway</a>.</li>
+        <li>Verse-by-verse commentary — <a href="http://biblehub.com/commentaries/zechariah/11-13.htm" target="_blank" rel="noopener">BibleHub</a> (incl. the Zechariah 11:13 / Jeremiah-attribution thread).</li>
+        <li>A serious critical take on the math — Mark Chu-Carroll's <a href="http://www.goodmath.org/blog/2006/06/24/fundie-probability-even-worse-math-than-swinburne/" target="_blank" rel="noopener">“Fundie Probability.”</a></li>
+        <li>The in-house caution — <a href="http://sciencespeaks.dstoner.net/" target="_blank" rel="noopener">Stoner's grandson on the limits of the argument</a> (“A Warning to Apologists”).</li>
+        <li>The Psalm 22:16 textual debate — <a href="https://en.wikipedia.org/wiki/They_have_pierced_my_hands_and_my_feet" target="_blank" rel="noopener">“pierced” vs. “like a lion.”</a></li>
+      </ol>
+    </div>
+    <p class="foot-note">Probability estimates are Stoner's; the doubt dial and per-prophecy adjusters are ours. Independence of events is assumed — see “How the math works.” Scripture quotations: King James Version (public domain). We cite our sources and our critics. Check our math, check our verses, and make up your own mind — that's the whole point.</p>
+
+    <nav class="footnav" aria-label="Footer">
+      <a href="#calculator">Calculator</a>
+      <a href="#math">The Math</a>
+      <a href="#prophecies">Prophecies</a>
+      <a href="#share">Share</a>
+      <a href="#merch">Merch</a>
+      <a href="#missions">Missions</a>
+    </nav>
+    <div class="socials">
+      <a href="https://tiktok.com/@oddsarejesus" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://instagram.com/oddsarejesus" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://x.com/oddsarejesus" target="_blank" rel="noopener">X</a>
+    </div>
+    <p class="legal">© 2026 Odds Are Jesus · For education and conversation, not financial or theological advice. Probably obvious. Saying it anyway.</p>
+  </div>
+</footer>
+
+<!-- milestone toast -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <button class="tx" id="toastClose" aria-label="Dismiss">×</button>
+  <div class="tt"><span class="coin">🪙</span> Texas scale.</div>
+  <p>You're at <strong class="mono" id="toastNum"></strong> — like finding one marked coin in silver dollars covering Texas two feet deep. Blindfolded.</p>
+</div>
+
+<!-- scripture sheet -->
+<div class="sheet-overlay" id="sheetOverlay"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <button class="sheet-close" id="sheetClose" aria-label="Close">×</button>
+  <h3 id="sheetTitle"></h3>
+  <div class="ver">King James Version (public domain)</div>
+  <div id="sheetBody"></div>
+</div>
+
+<!-- chat friend -->
+<button id="chatFab" class="chat-fab" aria-label="Chat with Chance, your faith-based mathematician and statistician" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#1a1206" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</button>
+<div id="chatPanel" class="chat-panel" role="dialog" aria-label="Chat with Chance" hidden>
+  <div class="chat-head">
+    <span class="chat-avatar" aria-hidden="true">C</span>
+    <div><strong>Chance</strong><span class="sub">Faith-based mathematician &amp; statistician</span></div>
+    <button id="chatClose" class="chat-close" aria-label="Close chat">&times;</button>
+  </div>
+  <div id="chatLog" class="chat-log" aria-live="polite"></div>
+  <div class="chat-chips" id="chatChips"></div>
+  <form id="chatForm" class="chat-form">
+    <input id="chatInput" type="text" placeholder="Ask anything&hellip;" autocomplete="off" maxlength="300" aria-label="Type your question">
+    <button type="submit" aria-label="Send">&rarr;</button>
+  </form>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="shop.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>
