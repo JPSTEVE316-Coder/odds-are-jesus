@@ -5,7 +5,8 @@
 "use strict";
 
 /* ---------- config ---------- */
-const EMAIL_ENDPOINT = ""; // <-- wire Formspree/ConvertKit here later; empty = honest "coming soon" fallback
+const EMAIL_ENDPOINT = "https://docs.google.com/forms/d/e/1FAIpQLSf4WQaQZ6XEYI2BBryxEYLmo48nD9OG4jqo-VitWwI97iZkOA/formResponse"; // Google Form "Odds Are Jesus — Email Signup"; empty = honest "coming soon" fallback
+const EMAIL_ENTRY = "entry.514691784"; // Email field id in that form
 const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const LOG_POP = Math.log10(POPULATION_EVER);
 
@@ -619,15 +620,17 @@ function buildEmail() {
     e.preventDefault();
     if (form.website.value) return; // honeypot
     const email = form.email.value.trim();
-    if (!email) return;
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      form.email.focus();
+      return;
+    }
     try {
-      const r = await fetch(EMAIL_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      if (!r.ok) throw new Error("bad status");
-      form.innerHTML = `<p style="font-size:17px"><span style="color:var(--accent);font-weight:700">✓</span> <strong>You're on the team.</strong> Check your inbox.</p>`;
+      // Google Forms has no CORS headers: no-cors + FormData is the supported pattern.
+      // The response is opaque, so reaching here without a network error counts as sent.
+      const fd = new FormData();
+      fd.append(EMAIL_ENTRY, email);
+      await fetch(EMAIL_ENDPOINT, { method: "POST", mode: "no-cors", body: fd });
+      form.innerHTML = `<p style="font-size:17px"><span style="color:var(--accent);font-weight:700">✓</span> <strong>You're on the team.</strong> First drop lands soon.</p>`;
     } catch (err) {
       form.innerHTML = `<p style="color:var(--muted)">Hmm — that didn't go through. Try again in a bit.</p>`;
     }
