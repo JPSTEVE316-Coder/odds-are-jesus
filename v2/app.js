@@ -206,23 +206,27 @@ function buildSlider() {
   const slider = $("doubt");
   const bubble = $("doubtBubble");
   const label = $("doubtLabel");
+  // Live % readout centered on the thumb, clamped so it never hangs off the
+  // track ends. Guarded: if the bubble element is ever missing, the slider
+  // must still update the odds — a missing readout must never brick the dial.
+  function placeBubble(v) {
+    if (!bubble) return;
+    bubble.textContent = v + "%";
+    const w = slider.clientWidth || 1;
+    const half = bubble.offsetWidth / 2 || 24;
+    const x = ((v - 1) / 99) * (w - 30) + 15;
+    bubble.style.left = Math.min(Math.max(x, half), w - half) + "px";
+  }
   function paint() {
     const v = +slider.value;
     globalS = v;
     slider.style.setProperty("--fill", v + "%");
-    const pct = (v - 1) / 99;
-    const x = pct * (slider.clientWidth - 30) + 15;
-    bubble.style.left = x + "px";
-    bubble.textContent = v + "%";
-    label.textContent = `Skepticism discount: ${v}%`;
+    placeBubble(v);
+    if (label) label.textContent = `Skepticism discount: ${v}%`;
     renderReadouts();
   }
   slider.addEventListener("input", paint);
-  window.addEventListener("resize", () => {
-    const v = +slider.value;
-    const pct = (v - 1) / 99;
-    bubble.style.left = (pct * (slider.clientWidth - 30) + 15) + "px";
-  });
+  window.addEventListener("resize", () => placeBubble(+slider.value));
   slider.value = globalS;
   requestAnimationFrame(paint);
 }
