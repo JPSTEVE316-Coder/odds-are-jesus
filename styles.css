@@ -59,6 +59,7 @@ button { font-family: inherit; }
   font-family: var(--font-display); font-weight: 700; font-size: 10px; letter-spacing: -0.02em;
 }
 .bar-readout { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.bar-actions { display: flex; align-items: center; gap: 10px; }
 .bar-merch {
   flex: none;
   display: inline-flex; align-items: center; justify-content: center;
